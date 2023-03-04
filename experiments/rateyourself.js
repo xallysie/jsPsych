@@ -4,12 +4,6 @@ var jsPsych = initJsPsych({
     //on_finish: function() {
     //    jsPsych.data.displayData();
     //}
-
-    /* uncomment below to host task on Qualtrics instead of your own dedicated server */
-    display_element: 'display_stage',
-    on_finish: function () {
-        jsPsych.data.displayData();
-    }
 });
 /* create timeline */
 var timeline = [];
