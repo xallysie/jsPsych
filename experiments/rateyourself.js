@@ -1,6 +1,7 @@
 /* initialize jsPsych */
 var jsPsych = initJsPsych({
     default_iti: 50,
+    display_element: 'display_stage',
     /* uncomment below to debug test data collection */
     //on_finish: function() {
     //    jsPsych.data.displayData();
