@@ -1,7 +1,13 @@
 /* initialize jsPsych */
 var jsPsych = initJsPsych({
     /* uncomment below to debug test data collection */
-    on_finish: function() {
+    //on_finish: function() {
+    //    jsPsych.data.displayData();
+    //}
+
+    /* uncomment below to host task on Qualtrics instead of your own dedicated server */
+    display_element: 'display_stage',
+    on_finish: function () {
         jsPsych.data.displayData();
     }
 });
