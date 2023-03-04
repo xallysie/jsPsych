@@ -486,7 +486,7 @@
   text-align: center;
   /*padding: 8px 0px;*/
   width: 100%;
-  line-height: 1em;
+  /*line-height: 1em;*/
 }
 
 #jspsych-progressbar-container span {
