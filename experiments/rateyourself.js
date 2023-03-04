@@ -1,11 +1,20 @@
 /* initialize jsPsych */
 var jsPsych = initJsPsych({
     default_iti: 50,
-    display_element: 'display_stage',
+    /* uncomment to use div styles*/
+    //display_element: 'display_stage',
     /* uncomment below to debug test data collection */
     //on_finish: function() {
     //    jsPsych.data.displayData();
     //}
+    /* The code below sends experimental data to jsPsychSheet by calling
+    // jsPsychSheet.uploadData(<webappURL>, jsPsych.data.get().csv()).
+    // Here <webappURL> is the URL copied from deploying the Google Apps Script
+    /**CHANGEME**/
+    on_finish: function () {
+        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        jsPsychSheet.uploadData(url, jsPsych.data.get().csv())
+    }
 });
 /* create timeline */
 var timeline = [];
