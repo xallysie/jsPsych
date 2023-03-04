@@ -32,7 +32,7 @@ jsPsych.data.addProperties({
     surveyID: surveyID,
     Prolific_ID: Prolific_ID,
     pID: pID,
-    ParGen_FM = ParGenFM,
+    ParGen_FM: ParGenFM,
 });
 
 /* instructions */
