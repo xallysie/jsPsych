@@ -143,7 +143,7 @@ var RateYourself_str = {
 };
 
 /* Q1 - Define task list */
-var Q1TaskList = {
+var Q1_RateYourself_block = {
     timeline: [
         RateYourself_att,
         RateYourself_com,
@@ -158,10 +158,10 @@ var Q1TaskList = {
     ],
     randomize_order: true
 };
-timeline.push(Q1TaskList);
+timeline.push(Q1_RateYourself_block);
 
-/* Q2 - Stereotypes about Women/Men in General */
-var Stereotype_instructions = {
+/* Q2 - Stereotypical Perceptions of Women/Men in General */
+var Stereotypes_instructions = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
         var text = 'What do other people think '+ParGenPlural+' are like in general?<br><p style="font-weight: normal;">What do <b>other people</b> in your society think<b> '+ParGenPlural+'</b> are like?<br><br>Think about '+ParGenPlural+' <b>in general</b>.</p>';
@@ -176,31 +176,370 @@ var Stereotype_instructions = {
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
-timeline.push(Stereotype_instructions);
+/* timeline.push(Stereotypes_instructions); */
 
-var Stereotype_com = {
+var Stereotypes_com = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
         var text = 'How competent are '+ParGenPlural+'? That is, how capable are '+ParGenPlural+' at doing things in general?';
         return text;
     },
     prompt: function() {
-        var pprompt = 'What do other people in your society think '+ParGenPlural+' are like?';
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think '+ParGenPlural+' are like?</p>';
         return pprompt;
     },
     choices: ['1-Not at all competent', '2', '3', '4-Neutral', '5', '6', '7-Very competent'],
-    data: {WhatWasRating:'Stereotype_com'},
+    data: {WhatWasRating:'Stereotypes_com'},
+    css_classes: ['trial'],
+};
+var Stereotypes_int = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How intelligent are '+ParGenPlural+'? That is, how easily do '+ParGenPlural+' learn or understand new things or problems in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think '+ParGenPlural+' are like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all intelligent', '2', '3', '4-Neutral', '5', '6', '7-Very intelligent'],
+    data: {WhatWasRating:'Stereotypes_int'},
+    css_classes: ['trial'],
+};
+var Stereotypes_war = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How warm are '+ParGenPlural+'? That is, how kind and loving are '+ParGenPlural+' in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think '+ParGenPlural+' are like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all warm', '2', '3', '4-Neutral', '5', '6', '7-Very warm'],
+    data: {WhatWasRating:'Stereotypes_war'},
+    css_classes: ['trial'],
+};
+var Stereotypes_fri = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How friendly are '+ParGenPlural+'? That is, how sociable and pleasant are '+ParGenPlural+' in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think '+ParGenPlural+' are like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all friendly', '2', '3', '4-Neutral', '5', '6', '7-Very friendly'],
+    data: {WhatWasRating:'Stereotypes_fri'},
+    css_classes: ['trial'],
+};
+var Stereotypes_hon = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How honest are '+ParGenPlural+'? That is, how sincere and truthful are '+ParGenPlural+' in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think '+ParGenPlural+' are like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all honest', '2', '3', '4-Neutral', '5', '6', '7-Very honest'],
+    data: {WhatWasRating:'Stereotypes_hon'},
+    css_classes: ['trial'],
+};
+var Stereotypes_tru = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How trustworthy are '+ParGenPlural+'? That is, how much can '+ParGenPlural+' be relied upon as truthful and dependable in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think '+ParGenPlural+' are like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all trustworthy', '2', '3', '4-Neutral', '5', '6', '7-Very trustworthy'],
+    data: {WhatWasRating:'Stereotypes_tru'},
+    css_classes: ['trial'],
+};
+var Stereotypes_hea = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How healthy are '+ParGenPlural+'? That is, how is the physical and mental condition of '+ParGenPlural+' in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think '+ParGenPlural+' are like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all healthy', '2', '3', '4-Neutral', '5', '6', '7-Very healthy'],
+    data: {WhatWasRating:'Stereotypes_hea'},
+    css_classes: ['trial'],
+};
+var Stereotypes_att = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How attractive are '+ParGenPlural+'? That is, how physically appealing do '+ParGenPlural+' look to people in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think '+ParGenPlural+' are like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all attractive', '2', '3', '4-Neutral', '5', '6', '7-Very attractive'],
+    data: {WhatWasRating:'Stereotypes_att'},
+    css_classes: ['trial'],
+};
+var Stereotypes_dom = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How dominant are '+ParGenPlural+'? That is, how powerful, controlling, or commanding are '+ParGenPlural+' in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think '+ParGenPlural+' are like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all dominant', '2', '3', '4-Neutral', '5', '6', '7-Very dominant'],
+    data: {WhatWasRating:'Stereotypes_dom'},
+    css_classes: ['trial'],
+};
+var Stereotypes_str = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How physically strong are '+ParGenPlural+'? That is, how capable are '+ParGenPlural+' of doing vigorous or physically demanding tasks in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think '+ParGenPlural+' are like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all strong', '2', '3', '4-Neutral', '5', '6', '7-Very strong'],
+    data: {WhatWasRating:'Stereotypes_str'},
     css_classes: ['trial'],
 };
 
-/* Q2 - Define task list */
-var Q2TaskList = {
+/* Q2 - Define task list, and randomize, but don't push yet - want to randomize the order of this block with Q3 */
+var Q2_Stereotypes_block = {
     timeline: [
-        Stereotype_com
+        Stereotypes_com,
+        Stereotypes_int,
+        Stereotypes_war,
+        Stereotypes_fri,
+        Stereotypes_hon,
+        Stereotypes_tru,
+        Stereotypes_hea,
+        Stereotypes_att,
+        Stereotypes_dom,
+        Stereotypes_str,
     ],
     randomize_order: true
 };
-timeline.push(Q2TaskList);
+/* append instructions to start of array */
+//function appendInstructions(Q2_Stereotypes_block) {
+//    Q2_Stereotypes_block.unshift(Stereotypes_instructions);
+//}
+var Q2_Stereotypes_block = {
+    timeline: [
+        Stereotypes_instructions,
+        Q2_Stereotypes_block
+    ]
+}
+
+/* Q3 - Perceptions of the Ideal Woman/Man */
+var Ideal_instructions = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'What do other people think the ideal '+ParGenSingular+' is like?<br><p style="font-weight: normal;">What do <b>other people</b> in your society think<b> the ideal '+ParGenSingular+'</b> is like?<br><br>Think about <b>the ideal</b> '+ParGenSingular+'.</p>';
+        return text;
+    },
+    choices: ['NEXT'],
+    data: {WhatWasRating:'INSTRUCTIONS'},
+    css_classes: ['instructions'],
+    post_trial_gap: 100,
+    on_finish: function() {
+        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
+    }
+};
+
+var Ideal_com = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How competent is the ideal '+ParGenSingular+'? That is, how capable is the ideal '+ParGenSingular+' at doing things in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all competent', '2', '3', '4-Neutral', '5', '6', '7-Very competent'],
+    data: {WhatWasRating:'Ideal_com'},
+    css_classes: ['trial'],
+};
+var Ideal_int = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How intelligent is the ideal '+ParGenSingular+'? That is, how easily do '+ParGenSingular+' learn or understand new things or problems in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all intelligent', '2', '3', '4-Neutral', '5', '6', '7-Very intelligent'],
+    data: {WhatWasRating:'Ideal_int'},
+    css_classes: ['trial'],
+};
+var Ideal_war = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How warm is the ideal '+ParGenSingular+'? That is, how kind and loving is the ideal '+ParGenSingular+' in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all warm', '2', '3', '4-Neutral', '5', '6', '7-Very warm'],
+    data: {WhatWasRating:'Ideal_war'},
+    css_classes: ['trial'],
+};
+var Ideal_fri = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How friendly is the ideal '+ParGenSingular+'? That is, how sociable and pleasant is the ideal '+ParGenSingular+' in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all friendly', '2', '3', '4-Neutral', '5', '6', '7-Very friendly'],
+    data: {WhatWasRating:'Ideal_fri'},
+    css_classes: ['trial'],
+};
+var Ideal_hon = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How honest is the ideal '+ParGenSingular+'? That is, how sincere and truthful is the ideal '+ParGenSingular+' in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all honest', '2', '3', '4-Neutral', '5', '6', '7-Very honest'],
+    data: {WhatWasRating:'Ideal_hon'},
+    css_classes: ['trial'],
+};
+var Ideal_tru = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How trustworthy is the ideal '+ParGenSingular+'? That is, how much can '+ParGenSingular+' be relied upon as truthful and dependable in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all trustworthy', '2', '3', '4-Neutral', '5', '6', '7-Very trustworthy'],
+    data: {WhatWasRating:'Ideal_tru'},
+    css_classes: ['trial'],
+};
+var Ideal_hea = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How healthy is the ideal '+ParGenSingular+'? That is, how is the physical and mental condition of '+ParGenSingular+' in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all healthy', '2', '3', '4-Neutral', '5', '6', '7-Very healthy'],
+    data: {WhatWasRating:'Ideal_hea'},
+    css_classes: ['trial'],
+};
+var Ideal_att = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How attractive is the ideal '+ParGenSingular+'? That is, how physically appealing do '+ParGenSingular+' look to people in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all attractive', '2', '3', '4-Neutral', '5', '6', '7-Very attractive'],
+    data: {WhatWasRating:'Ideal_att'},
+    css_classes: ['trial'],
+};
+var Ideal_dom = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How dominant is the ideal '+ParGenSingular+'? That is, how powerful, controlling, or commanding is the ideal '+ParGenSingular+' in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all dominant', '2', '3', '4-Neutral', '5', '6', '7-Very dominant'],
+    data: {WhatWasRating:'Ideal_dom'},
+    css_classes: ['trial'],
+};
+var Ideal_str = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function(){
+        var text = 'How physically strong is the ideal '+ParGenSingular+'? That is, how capable is the ideal '+ParGenSingular+' of doing vigorous or physically demanding tasks in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        return pprompt;
+    },
+    choices: ['1-Not at all strong', '2', '3', '4-Neutral', '5', '6', '7-Very strong'],
+    data: {WhatWasRating:'Ideal_str'},
+    css_classes: ['trial'],
+};
+
+/* Q2 - Define task list, and randomize, but don't push yet - want to randomize the order of this block with Q2 */
+var Q3_Ideal_block = {
+    timeline: [
+        Ideal_com,
+        Ideal_int,
+        Ideal_war,
+        Ideal_fri,
+        Ideal_hon,
+        Ideal_tru,
+        Ideal_hea,
+        Ideal_att,
+        Ideal_dom,
+        Ideal_str,
+    ],
+    randomize_order: true
+};
+
+/* append instructions to start of array */
+var Q3_Ideal_block = {
+    timeline: [
+        Ideal_instructions,
+        Q3_Ideal_block
+    ]
+}
+
+/* Setup randomization between Q2 and Q3 */ 
+var Q2Q3_block_randomized = {
+    timeline: [
+        Q2_Stereotypes_block,
+        Q3_Ideal_block
+    ],
+    randomize_order: true
+}
+/* push to timeline */
+timeline.push(Q2Q3_block_randomized);
+
 
 /* start experiment */
 jsPsych.run(timeline);
