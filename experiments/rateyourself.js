@@ -164,7 +164,7 @@ timeline.push(Q1TaskList);
 var Stereotype_instructions = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
-        var text = "What do other people think "+ParGenPlural+" are like in general?<br><p style='font-weight: normal;'>What do <b>other people</b> in your society think<b> "+ParGenPlural+"</b> are like?<br><br>Think about "+ParGenPlural+" <b>in general</b>.</p>";
+        var text = 'What do other people think '+ParGenPlural+' are like in general?<br><p style="font-weight: normal;">What do <b>other people</b> in your society think<b> '+ParGenPlural+'</b> are like?<br><br>Think about '+ParGenPlural+' <b>in general</b>.</p>';
         return text;
     },
     choices: ['NEXT'],
@@ -180,11 +180,27 @@ timeline.push(Stereotype_instructions);
 
 var Stereotype_com = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'How competent are you? That is, how capable are you at doing things in general?',
+    stimulus: function(){
+        var text = 'How competent are '+ParGenPlural+'? That is, how capable are '+ParGenPlural+' at doing things in general?';
+        return text;
+    },
+    prompt: function() {
+        var pprompt = 'What do other people in your society think +'ParGenPlural+' are like?';
+        return pprompt;
+    },
     choices: ['1-Not at all competent', '2', '3', '4-Neutral', '5', '6', '7-Very competent'],
-    data: {WhatWasRating:'RateYourself_com'},
+    data: {WhatWasRating:'Stereotype_com'},
     css_classes: ['trial'],
 };
+
+/* Q2 - Define task list */
+var Q2TaskList = {
+    timeline: [
+        Stereotype_com
+    ],
+    randomize_order: true
+};
+timeline.push(Q2TaskList);
 
 /* start experiment */
 jsPsych.run(timeline);
