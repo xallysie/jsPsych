@@ -185,7 +185,7 @@ var Stereotype_com = {
         return text;
     },
     prompt: function() {
-        var pprompt = 'What do other people in your society think +'ParGenPlural+' are like?';
+        var pprompt = 'What do other people in your society think '+ParGenPlural+' are like?';
         return pprompt;
     },
     choices: ['1-Not at all competent', '2', '3', '4-Neutral', '5', '6', '7-Very competent'],
