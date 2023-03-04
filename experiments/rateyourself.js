@@ -22,15 +22,15 @@ var timeline = [];
 
 /* read url parameters and generate participant IDs */
 var urlParams = new URL(window.location.toLocaleString()).searchParams;
-var A52H5G2A = urlParams.get('surveyID');
-var M2GH72PE = urlParams.get('PROLIFIC_PID');
-var O2MN1ONW = urlParams.get('pID');
+var surveyID = urlParams.get('A52H5G2A');
+var prolificID = urlParams.get('M2GH72PE');
+var pID = urlParams.get('O2MN1ONW');
 var pg = urlParams.get('pg');
 /* add participant-level data to all trials */
 jsPsych.data.addProperties({
-    surveyID: A52H5G2A,
-    Prolific_ID: M2GH72PE,
-    pID: O2MN1ONW,
+    surveyID: surveyID,
+    Prolific_ID: prolificID,
+    pID: pID,
     ParGen_FM: pg,
 });
 
