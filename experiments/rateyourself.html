@@ -9,13 +9,19 @@
   <body></body>
   <script>
     /* initialize jsPsych */
-    var jsPsych = initJsPsych();
+    var jsPsych = initJsPsych({
+        /* uncomment below to debug test data collection */
+        on_finish: function() {
+            jsPsych.data.displayData();
+        }
+    });
     /* create timeline */
     var timeline = [];
     /* instructions */
     var welcome = {
         type: jsPsychHtmlButtonResponse,
         stimulus: '<p style="font-size:36px;">Think about yourself in general. Please do your best to honestly evaluate yourself on the following traits.</p>',
+        choices: ['NEXT'],
         post_trial_gap: 1000
     };
     timeline.push(welcome);
