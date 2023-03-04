@@ -178,7 +178,7 @@ var Stereotype_instructions = {
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
-timeline.push(RateYourself_instructions);
+timeline.push(Stereotype_instructions);
 
 var Stereotype_com = {
     type: jsPsychHtmlButtonResponse,
