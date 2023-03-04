@@ -16,8 +16,25 @@ var jsPsych = initJsPsych({
         jsPsychSheet.uploadData(url, jsPsych.data.get().csv())
     }
 });
+
 /* create timeline */
 var timeline = [];
+
+/* read url parameters and generate participant IDs */
+var urlParams = new URL(window.location.toLocaleString()).searchParams;
+var surveyID = urlParams.get('surveyID');
+var Prolific_ID = urlParams.get('PROLIFIC_PID');
+var pID = urlParams.get('pID');
+var ParGenFM = urlParams.get('pg');
+
+/* add participant-level data to all trials */
+jsPsych.data.addProperties({
+    surveyID: surveyID,
+    Prolific_ID: Prolific_ID,
+    pID: pID,
+    ParGen_FM = ParGenFM,
+});
+
 /* instructions */
 var welcome = {
     type: jsPsychHtmlButtonResponse,
@@ -49,7 +66,7 @@ var RateYourself_war = {
     type: jsPsychHtmlButtonResponse,
     stimulus: 'How warm are you? That is, how kind and loving are you in general?',
     choices: ['1-Not at all warm', '2', '3', '4-Neutral', '5', '6', '7-Very warm'],
-    data: {WhatWasRating:'RateYourself_war'}
+    data: {WhatWasRating:'RateYourself_war'},
     css_classes: ['trial'],
 };
 
