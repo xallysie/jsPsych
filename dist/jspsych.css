@@ -486,7 +486,7 @@
   text-align: center;
   /*padding: 8px 0px;*/
   width: 100%;
-  height: 10px;
+  height: 0px;
   /*line-height: 1em;*/
 }
 
@@ -499,8 +499,8 @@
   background-color: #eee;
   width: 100%;
   margin: auto;
-  height: 10px;
-  display: inline-block;
+  height: 9px;
+  /* display: inline-block; */
   vertical-align: middle;
   /*box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);*/
 }
