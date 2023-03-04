@@ -370,7 +370,7 @@ var Ideal_com = {
         return text;
     },
     prompt: function() {
-        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal '+ParGenSingular+' is like?</p>';
         return pprompt;
     },
     choices: ['1-Not at all competent', '2', '3', '4-Neutral', '5', '6', '7-Very competent'],
@@ -384,7 +384,7 @@ var Ideal_int = {
         return text;
     },
     prompt: function() {
-        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal '+ParGenSingular+' is like?</p>';
         return pprompt;
     },
     choices: ['1-Not at all intelligent', '2', '3', '4-Neutral', '5', '6', '7-Very intelligent'],
@@ -398,7 +398,7 @@ var Ideal_war = {
         return text;
     },
     prompt: function() {
-        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal '+ParGenSingular+' is like?</p>';
         return pprompt;
     },
     choices: ['1-Not at all warm', '2', '3', '4-Neutral', '5', '6', '7-Very warm'],
@@ -412,7 +412,7 @@ var Ideal_fri = {
         return text;
     },
     prompt: function() {
-        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal '+ParGenSingular+' is like?</p>';
         return pprompt;
     },
     choices: ['1-Not at all friendly', '2', '3', '4-Neutral', '5', '6', '7-Very friendly'],
@@ -426,7 +426,7 @@ var Ideal_hon = {
         return text;
     },
     prompt: function() {
-        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal '+ParGenSingular+' is like?</p>';
         return pprompt;
     },
     choices: ['1-Not at all honest', '2', '3', '4-Neutral', '5', '6', '7-Very honest'],
@@ -440,7 +440,7 @@ var Ideal_tru = {
         return text;
     },
     prompt: function() {
-        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal '+ParGenSingular+' is like?</p>';
         return pprompt;
     },
     choices: ['1-Not at all trustworthy', '2', '3', '4-Neutral', '5', '6', '7-Very trustworthy'],
@@ -454,7 +454,7 @@ var Ideal_hea = {
         return text;
     },
     prompt: function() {
-        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal '+ParGenSingular+' is like?</p>';
         return pprompt;
     },
     choices: ['1-Not at all healthy', '2', '3', '4-Neutral', '5', '6', '7-Very healthy'],
@@ -468,7 +468,7 @@ var Ideal_att = {
         return text;
     },
     prompt: function() {
-        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal '+ParGenSingular+' is like?</p>';
         return pprompt;
     },
     choices: ['1-Not at all attractive', '2', '3', '4-Neutral', '5', '6', '7-Very attractive'],
@@ -482,7 +482,7 @@ var Ideal_dom = {
         return text;
     },
     prompt: function() {
-        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal '+ParGenSingular+' is like?</p>';
         return pprompt;
     },
     choices: ['1-Not at all dominant', '2', '3', '4-Neutral', '5', '6', '7-Very dominant'],
@@ -496,7 +496,7 @@ var Ideal_str = {
         return text;
     },
     prompt: function() {
-        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal'+ParGenSingular+' is like?</p>';
+        var pprompt = '<p style="font-weight:normal;">What do other people in your society think the ideal '+ParGenSingular+' is like?</p>';
         return pprompt;
     },
     choices: ['1-Not at all strong', '2', '3', '4-Neutral', '5', '6', '7-Very strong'],
@@ -530,15 +530,18 @@ var Q3_Ideal_block = {
 }
 
 /* Setup randomization between Q2 and Q3 */ 
-var Q2Q3_block_randomized = {
-    timeline: [
-        Q2_Stereotypes_block,
-        Q3_Ideal_block
-    ],
-    randomize_order: true
-}
-/* push to timeline */
-timeline.push(Q2Q3_block_randomized);
+var Q2Q3_blocks_unshuffled = [
+    Q2_Stereotypes_block,
+    Q3_Ideal_block
+];
+
+/* use jsPsych.randomization.shuffle to randomize the order of the two blocks, then add the procedures to the timeline in random order */
+var Q2Q3_blocks_randomized = jsPsych.randomization.shuffle(Q2Q3_blocks_unshuffled);
+/* push randomized Q2 and Q3 blocks to timeline */
+timeline.push(Q2Q3_blocks_randomized[0]);
+timeline.push(Q2Q3_blocks_randomized[1]);
+
+/* Q4 - Stereotype Associations for Women and Men */
 
 
 /* start experiment */
