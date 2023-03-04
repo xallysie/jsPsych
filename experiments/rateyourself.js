@@ -36,8 +36,23 @@ jsPsych.data.addProperties({
     ParGen_FM: pg,
 });
 
-/* instructions */
-var welcome = {
+/* create gendered parameters */
+if (pg == 0) {
+    var ParGenPlural = "women";
+    var ParGenSingular = "woman";
+    var ParGenPronoun = "she";
+    var ParGenPossessive = "her";
+    var ParGender = "female";
+} else if (pg == 1) {
+    var ParGenPlural = "men";
+    var ParGenSingular = "man";
+    var ParGenPronoun = "he";
+    var ParGenPossessive = "his";
+    var ParGender = "male";
+}
+
+/* Q1 - Rating Yourself */
+var RateYourself_instructions = {
     type: jsPsychHtmlButtonResponse,
     stimulus: 'Think about yourself in general.<br> Please do your best to honestly evaluate yourself on the following traits.',
     choices: ['NEXT'],
@@ -45,7 +60,7 @@ var welcome = {
     css_classes: ['instructions'],
     post_trial_gap: 100
 };
-timeline.push(welcome);
+timeline.push(RateYourself_instructions);
 
 var RateYourself_com = {
     type: jsPsychHtmlButtonResponse,
@@ -127,8 +142,8 @@ var RateYourself_str = {
     css_classes: ['trial'],
 };
 
-/* define task list */
-var TaskList = {
+/* Q1 - Define task list */
+var Q1TaskList = {
     timeline: [
         RateYourself_att,
         RateYourself_com,
@@ -143,7 +158,35 @@ var TaskList = {
     ],
     randomize_order: true
 };
-timeline.push(TaskList);
+timeline.push(Q1TaskList);
+
+/* Q2 - Stereotypes about Women/Men in General */
+var Stereotype_instructions = {
+    type: jsPsychHtmlButtonResponse,
+    questions: [
+        {stimulus: function() {
+            var text = "What do other people think "+ParGenPlural+" are like in general?<br><p style="font-weight:normal;">What do <b>other people</b> in your society think<b> "+ParGenPlural+"</b> are like?<br><br>Think about "+ParGenPlural+" <b>in general</b>.</p>";
+            return text;
+        },
+    },],
+    choices: ['NEXT'],
+    data: {WhatWasRating:'INSTRUCTIONS'},
+    css_classes: ['instructions'],
+    post_trial_gap: 100,
+    on_finish: function() {
+        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
+    }
+};
+timeline.push(RateYourself_instructions);
+
+var Stereotype_com = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: 'How competent are you? That is, how capable are you at doing things in general?',
+    choices: ['1-Not at all competent', '2', '3', '4-Neutral', '5', '6', '7-Very competent'],
+    data: {WhatWasRating:'RateYourself_com'},
+    css_classes: ['trial'],
+};
 
 /* start experiment */
 jsPsych.run(timeline);
