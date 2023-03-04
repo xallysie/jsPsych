@@ -163,12 +163,10 @@ timeline.push(Q1TaskList);
 /* Q2 - Stereotypes about Women/Men in General */
 var Stereotype_instructions = {
     type: jsPsychHtmlButtonResponse,
-    questions: [
-        {stimulus: function() {
-            var text = "What do other people think "+ParGenPlural+" are like in general?<br><p style='font-weight: normal;'>What do <b>other people</b> in your society think<b> "+ParGenPlural+"</b> are like?<br><br>Think about "+ParGenPlural+" <b>in general</b>.</p>";
-            return text;
-        },
-    },],
+    stimulus: function(){
+        var text = "What do other people think "+ParGenPlural+" are like in general?<br><p style='font-weight: normal;'>What do <b>other people</b> in your society think<b> "+ParGenPlural+"</b> are like?<br><br>Think about "+ParGenPlural+" <b>in general</b>.</p>";
+        return text;
+    },
     choices: ['NEXT'],
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
