@@ -12,7 +12,7 @@ var welcome = {
     type: jsPsychHtmlButtonResponse,
     stimulus: '<p style="font-size:22px;font-weight:bold;">Think about yourself in general.<br> Please do your best to honestly evaluate yourself on the following traits.</p>',
     choices: ['NEXT'],
-    data: {WhatWasRating:'INSTRUCTIONS'}
+    data: {WhatWasRating:'INSTRUCTIONS'},
     post_trial_gap: 100
 };
 timeline.push(welcome);

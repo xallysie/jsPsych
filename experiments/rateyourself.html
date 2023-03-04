@@ -71,6 +71,10 @@
   <div id='display_stage'></div>
   </body>
   <script>
-
+    /* start experiment */
+        display_element: 'display_stage',
+    on_finish: function () {
+        jsPsych.data.displayData();
+    }
   </script>
 </html>
