@@ -37,7 +37,7 @@ jsPsych.data.addProperties({
 /* instructions */
 var welcome = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'Think about yourself in general.<br> Please do your best to honestly evaluate yourself on the following traits.',
+    stimulus: 'Think about yourself in general.<br> Please do your best to honestly evaluate yourself on the following traits.<br>',
     choices: ['NEXT'],
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
@@ -47,7 +47,7 @@ timeline.push(welcome);
 
 var RateYourself_com = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'How competent are you? That is, how capable are you at doing things in general?',
+    stimulus: 'How competent are you? That is, how capable are you at doing things in general?<br>',
     choices: ['1-Not at all competent', '2', '3', '4-Neutral', '5', '6', '7-Very competent'],
     data: {WhatWasRating:'RateYourself_com'},
     css_classes: ['trial'],
@@ -55,7 +55,7 @@ var RateYourself_com = {
 
 var RateYourself_int = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'How intelligent are you? That is, how easily do you learn or understand new things or problems in general?',
+    stimulus: 'How intelligent are you? That is, how easily do you learn or understand new things or problems in general?<br>',
     choices: ['1-Not at all intelligent', '2', '3', '4-Neutral', '5', '6', '7-Very intelligent'],
     data: {WhatWasRating:'RateYourself_int'},
     css_classes: ['trial'],
@@ -63,7 +63,7 @@ var RateYourself_int = {
 
 var RateYourself_war = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'How warm are you? That is, how kind and loving are you in general?',
+    stimulus: 'How warm are you? That is, how kind and loving are you in general?<br>',
     choices: ['1-Not at all warm', '2', '3', '4-Neutral', '5', '6', '7-Very warm'],
     data: {WhatWasRating:'RateYourself_war'},
     css_classes: ['trial'],
@@ -71,7 +71,7 @@ var RateYourself_war = {
 
 var RateYourself_fri = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'How friendly are you? That is, how sociable and pleasant are you in general?',
+    stimulus: 'How friendly are you? That is, how sociable and pleasant are you in general?<br>',
     choices: ['1-Not at all friendly', '2', '3', '4-Neutral', '5', '6', '7-Very friendly'],
     data: {WhatWasRating:'RateYourself_fri'},
     css_classes: ['trial'],
@@ -79,7 +79,7 @@ var RateYourself_fri = {
 
 var RateYourself_hon = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'How honest are you? That is, how sincere and truthful are you in general?',
+    stimulus: 'How honest are you? That is, how sincere and truthful are you in general?<br>',
     choices: ['1-Not at all honest', '2', '3', '4-Neutral', '5', '6', '7-Very honest'],
     data: {WhatWasRating:'RateYourself_hon'},
     css_classes: ['trial'],
@@ -87,7 +87,7 @@ var RateYourself_hon = {
 
 var RateYourself_tru = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'How trustworthy are you? That is, how much can you be relied upon as honest and truthful in general?',
+    stimulus: 'How trustworthy are you? That is, how much can you be relied upon as honest and truthful in general?<br>',
     choices: ['1-Not at all trustworthy', '2', '3', '4-Neutral', '5', '6', '7-Very trustworthy'],
     data: {WhatWasRating:'RateYourself_tru'},
     css_classes: ['trial'],
@@ -95,7 +95,7 @@ var RateYourself_tru = {
 
 var RateYourself_hea = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'How healthy are you? That is, how is your physical and mental condition in general?',
+    stimulus: 'How healthy are you? That is, how is your physical and mental condition in general?<br>',
     choices: ['1-Not at all healthy', '2', '3', '4-Neutral', '5', '6', '7-Very healthy'],
     data: {WhatWasRating:'RateYourself_hea'},
     css_classes: ['trial'],
@@ -103,7 +103,7 @@ var RateYourself_hea = {
 
 var RateYourself_att = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'How attractive are you? That is, how physically appealing do you look to people in general?',
+    stimulus: 'How attractive are you? That is, how physically appealing do you look to people in general?<br>',
     choices: ['1-Not at all attractive', '2', '3', '4-Neutral', '5', '6', '7-Very attractive'],
     data: {WhatWasRating:'RateYourself_att'},
     css_classes: ['trial'],
@@ -111,7 +111,7 @@ var RateYourself_att = {
 
 var RateYourself_dom = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'How dominant are you? That is, how powerful, controlling, or commanding are you in general?',
+    stimulus: 'How dominant are you? That is, how powerful, controlling, or commanding are you in general?<br>',
     choices: ['1-Not at all dominant', '2', '3', '4-Neutral', '5', '6', '7-Very dominant'],
     data: {WhatWasRating:'RateYourself_dom'},
     css_classes: ['trial'],
@@ -119,7 +119,7 @@ var RateYourself_dom = {
 
 var RateYourself_str = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'How physically strong are you? That is, how capable are you of doing physically demanding tasks in general?',
+    stimulus: 'How physically strong are you? That is, how capable are you of doing physically demanding tasks in general?<br>',
     choices: ['1-Not at all strong', '2', '3', '4-Neutral', '5', '6', '7-Very strong'],
     data: {WhatWasRating:'RateYourself_str'},
     css_classes: ['trial'],
