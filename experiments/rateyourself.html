@@ -5,6 +5,35 @@
     <script src="https://code.sallyxie.org/jsPsych/dist/jspsych.js"></script>
     <script src="https://code.sallyxie.org/jsPsych/dist/plugin-html-button-response.js"></script>
     <link href="https://code.sallyxie.org/jsPsych/dist/jspsych.css" rel="stylesheet" type="text/css" />
+    <style>
+        /* change look of button elements */
+        .jspsych-btn {
+            min-height: 79px;
+            min-width: 79px;
+            padding: 14px;
+            width: 120px;
+            height: 79px;
+            font-size: 16px;
+            font-family: "Open Sans", "Arial", sans-serif;
+            white-space: normal;
+            border: 0px solid transparent;
+            border-radius: 4px;
+            color: #333;
+            background-color: #f1f1f1;
+            border-color: #ccc;
+        }
+        /* change hover style of button elements */
+        @media (hover: hover) {
+            .jspsych-btn:hover {
+                background-color: #ffa748;
+                border-color: #ffa748;
+            }
+        }
+        .jspsych-btn:active {
+            background-color: #ffa748;
+            border-color: #ffa748;
+        }
+    </style>
   </head>
   <body></body>
   <script>
@@ -20,7 +49,7 @@
     /* instructions */
     var welcome = {
         type: jsPsychHtmlButtonResponse,
-        stimulus: '<p style="font-size:36px;">Think about yourself in general. Please do your best to honestly evaluate yourself on the following traits.</p>',
+        stimulus: '<p style="font-size:24px;">Think about yourself in general. Please do your best to honestly evaluate yourself on the following traits.</p>',
         choices: ['NEXT'],
         post_trial_gap: 1000
     };
@@ -28,61 +57,61 @@
 
     var RateYourself_com = {
         type: jsPsychHtmlButtonResponse,
-        stimulus: '<p style="font-size:36px;">How competent are you? That is, how capable are you at doing things in general?</p>',
+        stimulus: '<p style="font-size:24px;">How competent are you? That is, how capable are you at doing things in general?</p>',
         choices: ['1-Not at all competent', '2', '3', '4-Neutral', '5', '6', '7-Very competent']
     };
 
     var RateYourself_int = {
         type: jsPsychHtmlButtonResponse,
-        stimulus: '<p style="font-size:36px;">How intelligent are you? That is, how easily do you learn or understand new things or problems in general?</p>',
+        stimulus: '<p style="font-size:24px;">How intelligent are you? That is, how easily do you learn or understand new things or problems in general?</p>',
         choices: ['1-Not at all intelligent', '2', '3', '4-Neutral', '5', '6', '7-Very intelligent']
     };
 
     var RateYourself_war = {
         type: jsPsychHtmlButtonResponse,
-        stimulus: '<p style="font-size:36px;">How warm are you? That is, how kind and loving are you in general?</p>',
+        stimulus: '<p style="font-size:24px;">How warm are you? That is, how kind and loving are you in general?</p>',
         choices: ['1-Not at all warm', '2', '3', '4-Neutral', '5', '6', '7-Very warm']
     };
 
     var RateYourself_fri = {
         type: jsPsychHtmlButtonResponse,
-        stimulus: '<p style="font-size:36px;">How friendly are you? That is, how sociable and pleasant are you in general?</p>',
+        stimulus: '<p style="font-size:24px;">How friendly are you? That is, how sociable and pleasant are you in general?</p>',
         choices: ['1-Not at all friendly', '2', '3', '4-Neutral', '5', '6', '7-Very friendly']
     };
 
     var RateYourself_hon = {
         type: jsPsychHtmlButtonResponse,
-        stimulus: '<p style="font-size:36px;">How honest are you? That is, how sincere and truthful are you in general?</p>',
+        stimulus: '<p style="font-size:24px;">How honest are you? That is, how sincere and truthful are you in general?</p>',
         choices: ['1-Not at all honest', '2', '3', '4-Neutral', '5', '6', '7-Very honest']
     };
 
     var RateYourself_tru = {
         type: jsPsychHtmlButtonResponse,
-        stimulus: '<p style="font-size:36px;">How trustworthy are you? That is, how much can you be relied upon as honest and truthful in general?</p>',
+        stimulus: '<p style="font-size:24px;">How trustworthy are you? That is, how much can you be relied upon as honest and truthful in general?</p>',
         choices: ['1-Not at all trustworthy', '2', '3', '4-Neutral', '5', '6', '7-Very trustworthy']
     };
 
     var RateYourself_hea = {
         type: jsPsychHtmlButtonResponse,
-        stimulus: '<p style="font-size:36px;">How healthy are you? That is, how is your physical and mental condition in general?</p>',
+        stimulus: '<p style="font-size:24px;">How healthy are you? That is, how is your physical and mental condition in general?</p>',
         choices: ['1-Not at all healthy', '2', '3', '4-Neutral', '5', '6', '7-Very healthy']
     };
 
     var RateYourself_att = {
         type: jsPsychHtmlButtonResponse,
-        stimulus: '<p style="font-size:36px;">How attractive are you? That is, how physically appealing do you look to people in general?</p>',
+        stimulus: '<p style="font-size:24px;">How attractive are you? That is, how physically appealing do you look to people in general?</p>',
         choices: ['1-Not at all attractive', '2', '3', '4-Neutral', '5', '6', '7-Very attractive']
     };
 
     var RateYourself_dom = {
         type: jsPsychHtmlButtonResponse,
-        stimulus: '<p style="font-size:36px;">How dominant are you? That is, how powerful, controlling, or commanding are you in general?</p>',
+        stimulus: '<p style="font-size:24px;">How dominant are you? That is, how powerful, controlling, or commanding are you in general?</p>',
         choices: ['1-Not at all dominant', '2', '3', '4-Neutral', '5', '6', '7-Very dominant']
     };
 
     var RateYourself_str = {
         type: jsPsychHtmlButtonResponse,
-        stimulus: '<p style="font-size:36px;">How physically strong are you? That is, how capable are you of doing physically demanding tasks in general?</p>',
+        stimulus: '<p style="font-size:24px;">How physically strong are you? That is, how capable are you of doing physically demanding tasks in general?</p>',
         choices: ['1-Not at all strong', '2', '3', '4-Neutral', '5', '6', '7-Very strong']
     };
 
