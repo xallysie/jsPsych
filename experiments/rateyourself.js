@@ -165,7 +165,7 @@ var Stereotype_instructions = {
     type: jsPsychHtmlButtonResponse,
     questions: [
         {stimulus: function() {
-            var text = "What do other people think "+ParGenPlural+" are like in general?<br><p style="font-weight:normal;">What do <b>other people</b> in your society think<b> "+ParGenPlural+"</b> are like?<br><br>Think about "+ParGenPlural+" <b>in general</b>.</p>";
+            var text = "What do other people think "+ParGenPlural+" are like in general?<br><p style='font-weight: normal;'>What do <b>other people</b> in your society think<b> "+ParGenPlural+"</b> are like?<br><br>Think about "+ParGenPlural+" <b>in general</b>.</p>";
             return text;
         },
     },],
