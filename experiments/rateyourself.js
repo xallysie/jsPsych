@@ -800,7 +800,7 @@ var GenderTypicality_qs = [
 var GenderTypicality_trial = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
-        var text = +jsPsych.timelineVariable('question');
+        var text = jsPsych.timelineVariable('question');
         return text;
     },
     choices: ['1-Strongly disagree', '2-Disagree', '3-Slightly disagree', '4-Neither agree nor disagree', '5-Slightly agree', '6-Agree', '7-Strongly agree'],
@@ -843,7 +843,7 @@ var PrototypeImportance_qs = [
 var PrototypeImportance_trial = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
-        var text = +jsPsych.timelineVariable('question');
+        var text = jsPsych.timelineVariable('question');
         return text;
     },
     choices: ['1-Not at all important', '2', '3', '4', '5-Somewhat important', '6', '7', '8', '9-Extremely important'],
@@ -890,7 +890,7 @@ var Wellbeing_SWLS_qs = [
 var Wellbeing_SWLS_trial = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
-        var text = +jsPsych.timelineVariable('question');
+        var text = jsPsych.timelineVariable('question');
         return text;
     },
     choices: ['1-Strongly disagree', '2-Disagree', '3-Slightly disagree', '4-Neither agree nor disagree', '5-Slightly agree', '6-Agree', '7-Strongly agree'],
@@ -1122,7 +1122,7 @@ var SocialDesirability_qs = [
 var SocialDesirability_trial = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
-        var text = +jsPsych.timelineVariable('question');
+        var text = jsPsych.timelineVariable('question');
         return text;
     },
     choices: ['1-Not at all true', '2', '3', '4-Somewhat true', '5', '6', '7-Very true'],
@@ -1164,7 +1164,7 @@ var MetaPerceptions_qs = [
 var MetaPerceptions_trial = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
-        var text = +jsPsych.timelineVariable('question');
+        var text = jsPsych.timelineVariable('question');
         return text;
     },
     choices: function(){
@@ -1248,10 +1248,10 @@ var IngroupIdentification_trial = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
         if (customg=="null"){
-            var text = +jsPsych.timelineVariable('question');
+            var text = jsPsych.timelineVariable('question');
             return text;
         } else {
-            var text = +jsPsych.timelineVariable('question_nb');
+            var text = jsPsych.timelineVariable('question_nb');
             return text;
         }
     },
