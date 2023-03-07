@@ -1156,10 +1156,10 @@ var Q15_MetaPerceptions_Instructions = {
     }
 };
 var MetaPerceptions_qs = [
-    {question: "To what extent do other people view you as similar to a <u>typical</u> "+ParGenSingular+"?", meta:"MetaPercept_typical", choiceword:"typical"},
+    {question: "To what extent do other people view you as similar to a <u>typical</u> "+ParGenSingular+"?", meta:"MetaPercept_typical", choiceword:"typical"}, 
     {question: "To what extent do other people view you as gender-conforming? That is, expressing your gender in a way that aligns with societal norms?", meta:"MetaPercept_genderconform", choiceword:"gender-conforming"},
     {question: "To what extent do other people view you as similar to the <u>ideal</u> "+ParGenSingular+"?", meta:"MetaPercept_ideal", choiceword:"similar"},
-    {question: "To what extent do other people view your gender the way you want them to?", meta:"MetaPercept_selfaligned", choiceword:""}
+    {question: "To what extent do other people view your gender the way you want them to?", meta:"MetaPercept_selfaligned", choiceword:"in the way I want"}
 ]
 var MetaPerceptions_trial = {
     type: jsPsychHtmlButtonResponse,
@@ -1168,7 +1168,7 @@ var MetaPerceptions_trial = {
         return text;
     },
     choices: function(){
-        var choicetext = ['1-Not at all '+jsPsych.timelineVariable(choiceword), '2', '3', '4-Somewhat '+jsPsych.timelineVariable(choiceword), '5', '6', '7-Very '+jsPsych.timelineVariable(choiceword)];
+        var choicetext = ['1-Not at all '+jsPsych.timelineVariable('choiceword'), '2', '3', '4-Somewhat '+jsPsych.timelineVariable('choiceword'), '5', '6', '7-Very '+jsPsych.timelineVariable('choiceword')];
         return choicetext;
     },
     data: {WhatWasRating: jsPsych.timelineVariable('meta')},
@@ -1199,7 +1199,7 @@ var FirstOrder_trial = {
         return text;
     },
     choices: function(){
-        var choicetext = ['1-Not at all '+jsPsych.timelineVariable(choiceword), '2', '3', '4-Somewhat '+jsPsych.timelineVariable(choiceword), '5', '6', '7-Very '+jsPsych.timelineVariable(choiceword)];
+        var choicetext = ['1-Not at all '+jsPsych.timelineVariable('choiceword'), '2', '3', '4-Somewhat '+jsPsych.timelineVariable('choiceword'), '5', '6', '7-Very '+jsPsych.timelineVariable('choiceword')];
         return choicetext;
     },
     data: {WhatWasRating: 'FirstOrder_'+jsPsych.timelineVariable('meta')},
@@ -1212,7 +1212,7 @@ var ThirdOrder_trial = {
         return text;
     },
     choices: function(){
-        var choicetext = ['1-Not at all '+jsPsych.timelineVariable(choiceword), '2', '3', '4-Somewhat '+jsPsych.timelineVariable(choiceword), '5', '6', '7-Very '+jsPsych.timelineVariable(choiceword)];
+        var choicetext = ['1-Not at all '+jsPsych.timelineVariable('choiceword'), '2', '3', '4-Somewhat '+jsPsych.timelineVariable('choiceword'), '5', '6', '7-Very '+jsPsych.timelineVariable('choiceword')];
         return choicetext;
     },
     data: {WhatWasRating: 'ThirdOrder_'+jsPsych.timelineVariable('meta')},
