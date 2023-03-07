@@ -816,7 +816,7 @@ var GenderTypicality_trials = {
 var Q8_GenderTypicality_block = {
     timeline: [
         Q8_GenderTypicality_Instructions,
-        GlobalIdentity_trials
+        GenderTypicality_trials
     ]
 };
 
@@ -1061,7 +1061,7 @@ var Q13_InclusionOtherinSelf_Instructions = {
 var InclusionOtherinSelf_trial = {
     type: jsPsychHtmlButtonResponse,
     /* show image instead of button choices */
-    button_html: '<img src=%choice%></img>',
+    button_html: '<img src=%choice%></img><br>',
     stimulus: function(){
         var text = "Please select the image that best represents the relationship between <u>yourself</u> and <span style='color:#2980b9;'><u> "+ParGenPlural+" in general</u></span>";
         return text;
