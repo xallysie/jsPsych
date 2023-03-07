@@ -28,6 +28,7 @@ var surveyID = urlParams.get('A52H5G2A');
 var prolificID = urlParams.get('M2GH72PE');
 var pID = urlParams.get('O2MN1ONW');
 var pg = urlParams.get('pg');
+var customg = "null";
 var customg = urlParams.get('HSJ2JS');
 /* add participant-level data to all trials */
 jsPsych.data.addProperties({
@@ -1061,9 +1062,9 @@ var Q13_InclusionOtherinSelf_Instructions = {
 var InclusionOtherinSelf_trial = {
     type: jsPsychHtmlButtonResponse,
     /* show image instead of button choices */
-    button_html: '<img src=%choice%></img><br>',
+    button_html: '<img src=%choice%></img>',
     stimulus: function(){
-        var text = "Please select the image that best represents the relationship between <u>yourself</u> and <span style='color:#2980b9;'><u> "+ParGenPlural+" in general</u></span>";
+        var text = "Please select the image that best represents the relationship between <u>yourself</u> and <span style='color:#2980b9;'><u> "+ParGenPlural+" in general</u></span><br><br>";
         return text;
     },
     choices: function(){
@@ -1247,11 +1248,11 @@ var IngroupId_qs = [
 var IngroupIdentification_trial = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
-        if (customg=="null"){
-            var text = jsPsych.timelineVariable('question');
+        if (customg=="null" || customg==NaN){
+            var text = jsPsych.timelineVariable('question_nb');
             return text;
         } else {
-            var text = jsPsych.timelineVariable('question_nb');
+            var text = jsPsych.timelineVariable('question');
             return text;
         }
     },
