@@ -1249,10 +1249,10 @@ var IngroupIdentification_trial = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
         if (customg=="null" || customg==NaN){
-            var text = jsPsych.timelineVariable('question_nb');
+            var text = jsPsych.timelineVariable('question');
             return text;
         } else {
-            var text = jsPsych.timelineVariable('question');
+            var text = jsPsych.timelineVariable('question_nb');
             return text;
         }
     },
