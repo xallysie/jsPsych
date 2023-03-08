@@ -1242,7 +1242,7 @@ var Q16_IngroupIdentification_Instructions = {
 };
 var IngroupId_qs = [
     {question: "I often think about the fact that I am a "+ParGenSingular+".", ii:"IngroupId_1", question_nb: "I often think about the fact that I am "+customg+"."},
-    {question: "The fact that I am a "+ParGenSingular+ "is an important part of my identity.", ii:"IngroupId_2", question_nb: "The fact that I am "+customg+" is an important part of my identity."},
+    {question: "The fact that I am a "+ParGenSingular+ " is an important part of my identity.", ii:"IngroupId_2", question_nb: "The fact that I am "+customg+" is an important part of my identity."},
     {question: "Being a "+ParGenSingular+" is an important part of how I see myself.", ii:"IngroupId_3", question_nb: "Being "+customg+" is an important part of how I see myself."},
 ]
 var IngroupIdentification_trial = {
