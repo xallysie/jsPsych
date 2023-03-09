@@ -56,7 +56,7 @@ if (pg == 0) {
 /* Create Attention Checks */
 var AttentionCheck_1 = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: ['Beep boop. To check if you are a bot, please select "not a dog".'],
+    stimulus: ['Beep boop. To check if you are a bot, please select "1-Not at all likely".'],
     choices: ['1-Not a dog', '2', '3', '4-Neutral', '5', '6', '7-Very much a bot'],
     data: {WhatWasRating: "attention_1"},
     css_classes: ['attention'],
