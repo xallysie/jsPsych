@@ -1240,7 +1240,7 @@ var Q15_MetaPerceptions_block = {
     ]
 };
 
-/* Q16 - First and Third Order Measures of Femininity and Masculinity */
+/* Q15 - First and Third Order Measures of Femininity and Masculinity */
 var FirstThirdOrder_qs = [
     {question: "Feminine", meta:"fem", choiceword:"feminine"},
     {question: "Masculine", meta:"masc", choiceword:"masculine"},
@@ -1277,6 +1277,11 @@ var FirstThirdOrder_trials = {
         ThirdOrder_trial],
     timeline_variables: FirstThirdOrder_qs,
     randomize_order:true
+};
+var Q15_FirstThirdOrder_block = {
+    timeline: [
+        FirstThirdOrder_trials
+    ]
 };
 
 /* Q16 - Ingroup Identification Scale */
@@ -1332,7 +1337,7 @@ var Q7toQ16_blocks_unshuffled = [
     Q9_PrototypeImportance_block,
     Q13_InclusionOtherinSelf_block,
     Q14_SocialDesirability_block,
-    Q15_MetaPerceptions_block,
+    Q15_FirstThirdOrder_block,
     Q16_IngroupIdentification_block,
 ];
 /* use jsPsych.randomization.shuffle to randomize the order of the two blocks, then add the procedures to the timeline in random order */

@@ -1281,6 +1281,11 @@ var FirstThirdOrder_trials = {
     timeline_variables: FirstThirdOrder_qs,
     randomize_order:true
 };
+var Q15_FirstThirdOrder_block = {
+    timeline: [
+        FirstThirdOrder_trials
+    ]
+};
 
 /* Q16 - Ingroup Identification Scale */
 var Q16_IngroupIdentification_Instructions = {
@@ -1335,7 +1340,7 @@ var Q7toQ16_blocks_unshuffled = [
     Q9_PrototypeImportance_block,
     Q13_InclusionOtherinSelf_block,
     Q14_SocialDesirability_block,
-    Q15_MetaPerceptions_block,
+    Q15_FirstThirdOrder_block,
     Q16_IngroupIdentification_block,
 ];
 /* use jsPsych.randomization.shuffle to randomize the order of the two blocks, then add the procedures to the timeline in random order */
