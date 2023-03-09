@@ -632,13 +632,11 @@ var StereotypeAssociations_traitpairs = shuffledtraitpairs.map(function(v) {
         traitpair: v[0].substr(0,3) + v[1].substr(0,3)
     };
 });
-console.log(StereotypeAssociations_traitpairs[44]);
 /* add attention checks */
 StereotypeAssociations_traitpairs[45] = {trait1: "Beep boop. To check if you are a bot, please select 'not a dog'.", trait2: "1-Not a dog", traitpair:"attention_1"};
-StereotypeAssociations_traitpairs[46] = {trait1: "Beep boop. To check if you are a bot, please select the number of dogs that appear in the images below.<br><br><img src='img/attention1.png'> <img src='img/attention2.png'>", trait2: "3", traitpair: "attention_2"};
-StereotypeAssociations_traitpairs[47] = {trait1: "Beep boop. To check if you are a bot, please select the number of cats that appear in the images below.<br><br><img src='img/attention5.png'> <img src='img/attention6.png'> <img src='img/attention4.png'>", trait2: "5", traitpair: "attention_3"};
+StereotypeAssociations_traitpairs[46] = {trait1: "Beep boop. To check if you are a bot, please select the number of dogs that appear in the images below.<br><br><img src='img/attention1.png' width='250px'> <img src='img/attention2.png' width='250px'>", trait2: "3", traitpair: "attention_2"};
+StereotypeAssociations_traitpairs[47] = {trait1: "Beep boop. To check if you are a bot, please select the number of cats that appear in the images below.<br><br><img src='img/attention5.png' width='250px'> <img src='img/attention6.png' width='250px'> <img src='img/attention4.png' width='250px'>", trait2: "5", traitpair: "attention_3"};
 
-console.log(StereotypeAssociations_traitpairs[46]);
 // short form (arrow function) of above function:
 //var StereotypeAssociations_traitpairs = shuffledtraitpairs.map(v => ({
 //    trait1: v[0],
