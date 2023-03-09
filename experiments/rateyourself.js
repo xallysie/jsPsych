@@ -6,7 +6,7 @@ function onUploadSuccess(){
 
 /* initialize jsPsych */
 var jsPsych = initJsPsych({
-    default_iti: 10,
+    default_iti: 100,
     show_progress_bar: true,
     message_progress_bar: '',
     /* uncomment to use div styles*/
