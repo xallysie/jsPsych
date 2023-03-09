@@ -629,14 +629,10 @@ function pairwisecombinations(list) {
 var shuffledtraitpairs = pairwisecombinations([
     "competent",
     "intelligent",
-    //"warm",
     "friendly",
-    //"honest",
     "trustworthy",
-    //"healthy",
     "attractive",
     "dominant",
-    //"physically strong"
 ]);
 /* convert list of shuffled trait-pairs to dictionary form readable by jsPsych */
 // use map to iterate over the shuffledtraitpairs array and create a new array with modified (named) objects
