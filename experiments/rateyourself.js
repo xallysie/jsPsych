@@ -1,6 +1,6 @@
 /* initialize jsPsych */
 var jsPsych = initJsPsych({
-    default_iti: 50,
+    default_iti: 100,
     show_progress_bar: true,
     message_progress_bar: '',
     /* uncomment to use div styles*/
@@ -28,8 +28,7 @@ var surveyID = urlParams.get('A52H5G2A');
 var prolificID = urlParams.get('M2GH72PE');
 var pID = urlParams.get('O2MN1ONW');
 var pg = urlParams.get('pg');
-var customg = "null";
-var customg = urlParams.get('HSJ2JS');
+var customg = jsPsych.data.getURLVariable('HSJ2JS');
 /* add participant-level data to all trials */
 jsPsych.data.addProperties({
     surveyID: surveyID,
@@ -53,6 +52,39 @@ if (pg == 0) {
     var ParGenPossessive = "his";
     var ParGender = "male";
 }
+
+/* Create Attention Checks */
+var AttentionCheck_1 = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: ['Beep boop. To check if you are a bot, please select "not a dog".'],
+    choices: ['1-Not a dog', '2', '3', '4-Neutral', '5', '6', '7-Very much a bot'],
+    data: {WhatWasRating: "attention_1"},
+    css_classes: ['attention'],
+};
+var AttentionCheck_2 = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: ['<img src="img/attention1.png"> <img src="img/attention2.png"><p>Beep boop. To check if you are a bot, please select the animal that appears in these photos.</p>'],
+    choices: ['1-Not a bot', '2', '3', '4-Neutral', '5', '6', '7-Dogs!'],
+    data: {WhatWasRating: "attention_2"},
+    css_classes: ['attention'],
+    on_finish: function(data){
+        data.correct = data.response === '7-Dogs!';
+    }
+};
+var AttentionCheck_3 = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: ['Beep boop. To check if you are a bot, please select the sound that a cat would make.'],
+    choices: ['1-Arf arf', '2', '3', '4-Beep boop', '5', '6', '7-Meow meow'],
+    data: {WhatWasRating: "attention_3"},
+    css_classes: ['attention'],
+};
+var AttentionCheck_4 = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: ['<img src="img/attention5.png"><img src="img/attention6.png"><img src="img/attention4.png"><p>Beep boop. Which animal does not belong? To check if you are a bot, please select the animal that is different from the others in these photos.</p>'],
+    choices: ['1-Cats', '2', '3', '4-Dogs', '5', '6', '7-Otter'],
+    data: {WhatWasRating: "attention_3"},
+    css_classes: ['attention'],
+};
 
 /* Q1 - Rating Yourself */
 var RateYourself_instructions = {
@@ -548,7 +580,7 @@ timeline.push(Q2Q3_blocks_randomized[1]);
 var StereotypeAssociations_instructions = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
-        var text = 'What do other people think '+ParGenPlural+' are like?<br><p style="font-weight: normal;">In this part of the study, you will be presented with <u>pairs of traits</u>.<br>We want to know how <u>other people in your society</u> might think these traits go together, when they think about '+ParGenPlural+'.</p> If a '+ParGenSingular+' has one trait, do people in society think '+ParGenPronoun+' is likely to have another trait?';
+        var text = 'What do other people think '+ParGenPlural+' are like?<br><p style="font-weight: normal;">In this part of the study, you will be presented with <u>pairs of traits</u>.<br>We want to know how <u>other people in your society</u> might <br>think these traits go together, when they think about '+ParGenPlural+'.</p> If a '+ParGenSingular+' has one trait, do people in society think '+ParGenPronoun+' is likely to have another trait?';
         return text;
     },
     choices: ['NEXT'],
@@ -600,6 +632,13 @@ var StereotypeAssociations_traitpairs = shuffledtraitpairs.map(function(v) {
         traitpair: v[0].substr(0,3) + v[1].substr(0,3)
     };
 });
+console.log(StereotypeAssociations_traitpairs[44]);
+/* add attention checks */
+StereotypeAssociations_traitpairs[45] = {trait1: "Beep boop. To check if you are a bot, please select 'not a dog'.", trait2: "1-Not a dog", traitpair:"attention_1"};
+StereotypeAssociations_traitpairs[46] = {trait1: "Beep boop. To check if you are a bot, please select the number of dogs that appear in the images below.<br><br><img src='img/attention1.png'> <img src='img/attention2.png'>", trait2: "3", traitpair: "attention_2"};
+StereotypeAssociations_traitpairs[47] = {trait1: "Beep boop. To check if you are a bot, please select the number of cats that appear in the images below.<br><br><img src='img/attention5.png'> <img src='img/attention6.png'> <img src='img/attention4.png'>", trait2: "5", traitpair: "attention_3"};
+
+console.log(StereotypeAssociations_traitpairs[46]);
 // short form (arrow function) of above function:
 //var StereotypeAssociations_traitpairs = shuffledtraitpairs.map(v => ({
 //    trait1: v[0],
@@ -618,6 +657,9 @@ var StereotypeAssociations_trial = {
             jsPsych.timelineVariable('trait1').startsWith("hon")){
             /* inject variables into text prompt */
             var text = 'How likely is an <u>'+jsPsych.timelineVariable('trait1')+'</u> '+ParGenSingular+' to be <u>'+jsPsych.timelineVariable('trait2')+'</u>?';
+            return text;
+        } else if (jsPsych.timelineVariable('trait1').startsWith("Beep")){
+            var text = jsPsych.timelineVariable('trait1');
             return text;
         } else {
             var text = 'How likely is a <u>'+jsPsych.timelineVariable('trait1')+'</u> '+ParGenSingular+' to be <u>'+jsPsych.timelineVariable('trait2')+'</u>?';
@@ -778,7 +820,7 @@ var Q7_GlobalIdentity_block = {
 var Q8_GenderTypicality_Instructions = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
-        var text = "Different "+ParGenPlural+" have a range of feelings about how <u>typical</u> they are in comparison to <u>other "+ParGenPlural+"</u>.<p style='font-weight:normal;'>Please read each statement and indicate your agreement with it.<br><br>There are no right or wrong answers, so please answer honestly.</p>";
+        var text = "Different "+ParGenPlural+" have a range of feelings about how <u>typical</u> they are in comparison to <u>"+ParGenPlural+" in general</u>.<p style='font-weight:normal;'>Please read each statement and indicate your agreement with it.<br><br>There are no right or wrong answers, so please answer honestly.</p>";
         return text;
     },
     choices: ['NEXT'],
@@ -790,10 +832,10 @@ var Q8_GenderTypicality_Instructions = {
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
-var GenderTypicality_qs = [
+var GenderTypicality_qs = [ /*removed "other" in questions 2 and 3*/
     {question: "I feel just like "+ParGenPlural+" my age.", gt:"GenderTypicality_1"},
-    {question: "I feel I fit in with other "+ParGenPlural+".", gt:"GenderTypicality_2"},
-    {question: "I think I am a good example of other "+ParGenPlural+".", gt:"GenderTypicality_3"},
+    {question: "I feel I fit in with "+ParGenPlural+".", gt:"GenderTypicality_2"},
+    {question: "I think I am a good example of "+ParGenPlural+".", gt:"GenderTypicality_3"},
     {question: "I feel that what I like to do in my spare time is similar to what most "+ParGenPlural+" like to do in their spare time.", gt:"GenderTypicality_4"},
     {question: "I feel that the things I am good at are similar to what most "+ParGenPlural+" are good at.", gt:"GenderTypicality_5"},
     {question: "I feel that my personality is similar to most "+ParGenPlural+"'s personalities.", gt:"GenderTypicality_6"}
@@ -939,7 +981,7 @@ var Wellbeing_GAD7_qs = [
 var Wellbeing_GAD7_trial = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
-        var text = "Over the <u>last 2 weeks</u>, how often have you been bothered by any of the following problems?<br><br>"+jsPsych.timelineVariable('question');
+        var text = "<p style='font-weight:normal;'>Over the <u>last 2 weeks</u>, how often have you been bothered by any of the following problems?</p>"+jsPsych.timelineVariable('question');
         return text;
     },
     choices: ['0-Not at all', '1-Several days', '2-More than half the days', '3-Nearly every day'],
@@ -996,7 +1038,7 @@ var Wellbeing_PHQ8_qs = [
 var Wellbeing_PHQ8_trial = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
-        var text = "Over the <u>last 2 weeks</u>, how often have you been bothered by any of the following problems?<br><br>"+jsPsych.timelineVariable('question');
+        var text = "<p style='font-weight:normal;'>Over the <u>last 2 weeks</u>, how often have you been bothered by any of the following problems?</p>"+jsPsych.timelineVariable('question');
         return text;
     },
     choices: ['0-Not at all', '1-Several days', '2-More than half the days', '3-Nearly every day'],
@@ -1047,7 +1089,7 @@ timeline.push(Q10Q11Q12_blocks_randomized[2]);
 var Q13_InclusionOtherinSelf_Instructions = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
-        var text = "This next set of questions is about how much your sense of self is wrapped up in other "+ParGenPlural+".<p style='font-weight:normal;'>Thinking about how much your personal identity overlaps with other "+ParGenPlural+", please do your best to honestly evaluate yourself.";
+        var text = "This next set of questions is about how much your sense of self is wrapped up in "+ParGenPlural+" in general.<p style='font-weight:normal;'>Thinking about how much your personal identity overlaps with "+ParGenPlural+" in general, please do your best to honestly evaluate yourself.";
         return text;
     },
     choices: ['NEXT'],
@@ -1160,7 +1202,7 @@ var MetaPerceptions_qs = [
     {question: "To what extent do other people view you as similar to a <u>typical</u> "+ParGenSingular+"?", meta:"MetaPercept_typical", choiceword:"typical"}, 
     {question: "To what extent do other people view you as gender-conforming? That is, expressing your gender in a way that aligns with societal norms?", meta:"MetaPercept_genderconform", choiceword:"gender-conforming"},
     {question: "To what extent do other people view you as similar to the <u>ideal</u> "+ParGenSingular+"?", meta:"MetaPercept_ideal", choiceword:"similar"},
-    {question: "To what extent do other people view your gender the way you want them to?", meta:"MetaPercept_selfaligned", choiceword:"in the way I want"}
+    {question: "To what extent do other people view your gender the way you want them to?", meta:"MetaPercept_selfaligned", choiceword:"<br>"}
 ]
 var MetaPerceptions_trial = {
     type: jsPsychHtmlButtonResponse,
@@ -1248,7 +1290,7 @@ var IngroupId_qs = [
 var IngroupIdentification_trial = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function(){
-        if (customg=="null" || customg==NaN){
+        if (customg=="null"||customg==null||customg=="undefined"){
             var text = jsPsych.timelineVariable('question');
             return text;
         } else {
@@ -1290,6 +1332,7 @@ timeline.push(Q7toQ16_blocks_randomized[0]);
 timeline.push(Q7toQ16_blocks_randomized[1]);
 timeline.push(Q7toQ16_blocks_randomized[2]);
 timeline.push(Q7toQ16_blocks_randomized[3]);
+timeline.push(AttentionCheck_3);
 timeline.push(Q7toQ16_blocks_randomized[4]);
 timeline.push(Q7toQ16_blocks_randomized[5]);
 timeline.push(Q7toQ16_blocks_randomized[6]);
