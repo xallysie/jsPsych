@@ -1,3 +1,9 @@
+/* **CHANGEME** paste end-of-survey link to Prolific */
+function onUploadSuccess(){
+    var jspsych_content = document.getElementById("jspsych-content");
+    jspsych_content.innerHTML = 'Your data is successfully uploaded!<br>Please click the link below to return to Prolific and receive credit for your participation.<br><br><a href="https://app.prolific.co/submissions/complete?cc=C1MZPIHY"><b>RECEIVE PAYMENT ON PROLIFIC</b></a>'
+  }
+
 /* initialize jsPsych */
 var jsPsych = initJsPsych({
     default_iti: 100,
@@ -52,6 +58,15 @@ if (pg == 0) {
     var ParGenPossessive = "his";
     var ParGender = "male";
 }
+
+/* Enter fullscreen mode */
+var Enter_Fullscreen = {
+    type: jsPsychFullscreen,
+    message: '<p style="font-weight:bold;">Welcome to the study. The experiment will switch to fullscreen mode when you press the button below.</p>',
+    button_label: 'NEXT',
+    fullscreen_mode: true
+}
+timeline.push(Enter_Fullscreen);
 
 /* Create Attention Checks */
 var AttentionCheck_1 = {
@@ -1334,6 +1349,33 @@ timeline.push(AttentionCheck_3);
 timeline.push(Q7toQ16_blocks_randomized[4]);
 timeline.push(Q7toQ16_blocks_randomized[5]);
 timeline.push(Q7toQ16_blocks_randomized[6]);
+
+
+var Exit_Fullscreen = {
+    type: jsPsychFullscreen,
+    message: '<p style="font-weight:bold;">Thank you for your participation. The study is now complete.<br><br>Please press the button below to exit fullscreen mode.</p>',
+    button_label: 'NEXT',
+    fullscreen_mode: false,
+    delay_after: 0
+}
+var End_of_Survey = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: 'Thank you for your participation. The study is now complete.<br><br>Please read the debriefing message on the next page.',
+    choices: ['NEXT'],
+    data: {WhatWasRating:'END_OF_SURVEY'},
+    css_classes: ['instructions'],
+}
+
+var Debriefing = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: 'Thank you for taking the time to participate in our study!<p style="font-weight:normal;">Research in our laboratory is concerned with the psychological mechanisms underlying how social contexts shape our identity. <br>For example, we are interested in how societal ideas about gender change the way that people see, think, and feel about themselves.<br><br>To investigate this question, we asked you to evaluate yourself on various traits, <br>to evaluate the traits that are representative of a typical person in a gender category, <br>and to report on your well-being and your ideas about gender.</p>If you have general questions about this study please contact:<p style="font-weight:normal;">Principal Investigator: Dr. Molly Crockett; mc5121@princeton.edu, crockett.laboratory@gmail.com</p>If you have questions regarding your rights as a research subject, or if problems arise which <br>you do not feel you can discuss with the investigator, please contact the Institutional Review Board at:<p style="font-weight:normal;">Assistant Director, Research Integrity and Assurance<br>Phone: (609) 258-8542<br>Email: irb@princeton.edu</p>On the next page, you will be directed to a link back to Prolific to <U>RECEIVE PAYMENT FOR YOUR PARTICIPATION</U>.',
+    choices: ['FINISH STUDY'],
+    data: {WhatWasRating:'DEBRIEFING'},
+    css_classes: ['instructions'],
+}
+timeline.push(Exit_Fullscreen);
+timeline.push(End_of_Survey);
+timeline.push(Debriefing);
 
 /* start experiment */
 jsPsych.run(timeline);
