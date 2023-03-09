@@ -33,8 +33,8 @@ var urlParams = new URL(window.location.toLocaleString()).searchParams;
 var surveyID = urlParams.get('A52H5G2A');
 var prolificID = urlParams.get('M2GH72PE');
 var pID = urlParams.get('O2MN1ONW');
-var pg = urlParams.get('pg');
 var customg = jsPsych.data.getURLVariable('HSJ2JS');
+var pg = urlParams.get('pg');
 /* add participant-level data to all trials */
 jsPsych.data.addProperties({
     surveyID: surveyID,
@@ -648,9 +648,10 @@ var StereotypeAssociations_traitpairs = shuffledtraitpairs.map(function(v) {
     };
 });
 /* add attention checks */
-StereotypeAssociations_traitpairs[45] = {trait1: "Beep boop. To check if you are a bot, please select '1-Not at all likely'.", trait2: "1-Not at all likely", traitpair:"attention_1"};
-StereotypeAssociations_traitpairs[46] = {trait1: "Beep boop. To check if you are a bot, please select the number of dogs that appear in the images below.<br><br><img src='img/attention1.png' width='250px'> <img src='img/attention2.png' width='250px'>", trait2: "3", traitpair: "attention_3_or_5"};
-StereotypeAssociations_traitpairs[47] = {trait1: "Beep boop. To check if you are a bot, please select the number of cats that appear in the images below.<br><br><img src='img/attention5.png' width='250px'> <img src='img/attention6.png' width='250px'> <img src='img/attention4.png' width='250px'>", trait2: "5", traitpair: "attention_5"};
+/** CHANGEME */
+StereotypeAssociations_traitpairs[15] = {trait1: "Beep boop. To check if you are a bot, please select '1-Not at all likely'.", trait2: "1-Not at all likely", traitpair:"attention_1"};
+StereotypeAssociations_traitpairs[16] = {trait1: "Beep boop. To check if you are a bot, please select the number of dogs that appear in the images below.<br><br><img src='img/attention1.png' width='250px'> <img src='img/attention2.png' width='250px'>", trait2: "3", traitpair: "attention_3_or_5"};
+StereotypeAssociations_traitpairs[17] = {trait1: "Beep boop. To check if you are a bot, please select the number of cats that appear in the images below.<br><br><img src='img/attention5.png' width='250px'> <img src='img/attention6.png' width='250px'> <img src='img/attention4.png' width='250px'>", trait2: "5", traitpair: "attention_5"};
 
 // short form (arrow function) of above function:
 //var StereotypeAssociations_traitpairs = shuffledtraitpairs.map(v => ({
