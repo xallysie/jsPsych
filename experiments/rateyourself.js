@@ -56,7 +56,7 @@ if (pg == 0) {
 /* Create Attention Checks */
 var AttentionCheck_1 = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: ['Beep boop. To check if you are a bot, please select "1-Not at all likely".'],
+    stimulus: ['Beep boop. To check if you are a bot, please select "not a dog".'],
     choices: ['1-Not a dog', '2', '3', '4-Neutral', '5', '6', '7-Very much a bot'],
     data: {WhatWasRating: "attention_1"},
     css_classes: ['attention'],
@@ -633,7 +633,7 @@ var StereotypeAssociations_traitpairs = shuffledtraitpairs.map(function(v) {
     };
 });
 /* add attention checks */
-StereotypeAssociations_traitpairs[45] = {trait1: "Beep boop. To check if you are a bot, please select 'not a dog'.", trait2: "1-Not a dog", traitpair:"attention_1"};
+StereotypeAssociations_traitpairs[45] = {trait1: "Beep boop. To check if you are a bot, please select '1-Not at all likely'.", trait2: "1-Not at all likely", traitpair:"attention_1"};
 StereotypeAssociations_traitpairs[46] = {trait1: "Beep boop. To check if you are a bot, please select the number of dogs that appear in the images below.<br><br><img src='img/attention1.png' width='250px'> <img src='img/attention2.png' width='250px'>", trait2: "3", traitpair: "attention_2"};
 StereotypeAssociations_traitpairs[47] = {trait1: "Beep boop. To check if you are a bot, please select the number of cats that appear in the images below.<br><br><img src='img/attention5.png' width='250px'> <img src='img/attention6.png' width='250px'> <img src='img/attention4.png' width='250px'>", trait2: "5", traitpair: "attention_3"};
 
