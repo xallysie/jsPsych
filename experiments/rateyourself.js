@@ -6,7 +6,7 @@ function onUploadSuccess(){
 
 /* initialize jsPsych */
 var jsPsych = initJsPsych({
-    default_iti: 100,
+    default_iti: 10,
     show_progress_bar: true,
     message_progress_bar: '',
     /* uncomment to use div styles*/
@@ -1371,7 +1371,7 @@ var Debriefing = {
     stimulus: 'Thank you for taking the time to participate in our study!<p style="font-weight:normal;">Research in our laboratory is concerned with the psychological mechanisms underlying how social contexts shape our identity. <br>For example, we are interested in how societal ideas about gender change the way that people see, think, and feel about themselves.<br><br>To investigate this question, we asked you to evaluate yourself on various traits, <br>to evaluate the traits that are representative of a typical person in a gender category, <br>and to report on your well-being and your ideas about gender.</p>If you have general questions about this study please contact:<p style="font-weight:normal;">Principal Investigator: Dr. Molly Crockett; mc5121@princeton.edu, crockett.laboratory@gmail.com</p>If you have questions regarding your rights as a research subject, or if problems arise which <br>you do not feel you can discuss with the investigator, please contact the Institutional Review Board at:<p style="font-weight:normal;">Assistant Director, Research Integrity and Assurance<br>Phone: (609) 258-8542<br>Email: irb@princeton.edu</p>On the next page, you will be directed to a link back to Prolific to <U>RECEIVE PAYMENT FOR YOUR PARTICIPATION</U>.',
     choices: ['FINISH STUDY'],
     data: {WhatWasRating:'DEBRIEFING'},
-    css_classes: ['instructions'],
+    css_classes: ['debrief'],
 }
 timeline.push(Exit_Fullscreen);
 timeline.push(End_of_Survey);
