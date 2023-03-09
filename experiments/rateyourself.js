@@ -74,14 +74,14 @@ var AttentionCheck_1 = {
     stimulus: ['Beep boop. To check if you are a bot, please select "not a dog".'],
     choices: ['1-Not a dog', '2', '3', '4-Neutral', '5', '6', '7-Very much a bot'],
     data: {WhatWasRating: "attention_1"},
-    css_classes: ['attention'],
+    css_classes: ['trial'],
 };
 var AttentionCheck_2 = {
     type: jsPsychHtmlButtonResponse,
     stimulus: ['<img src="img/attention1.png"> <img src="img/attention2.png"><p>Beep boop. To check if you are a bot, please select the animal that appears in these photos.</p>'],
     choices: ['1-Not a bot', '2', '3', '4-Neutral', '5', '6', '7-Dogs!'],
     data: {WhatWasRating: "attention_2"},
-    css_classes: ['attention'],
+    css_classes: ['trial'],
     on_finish: function(data){
         data.correct = data.response === '7-Dogs!';
     }
@@ -90,15 +90,15 @@ var AttentionCheck_3 = {
     type: jsPsychHtmlButtonResponse,
     stimulus: ['Beep boop. To check if you are a bot, please select the sound that a cat would make.'],
     choices: ['1-Arf arf', '2', '3', '4-Beep boop', '5', '6', '7-Meow meow'],
-    data: {WhatWasRating: "attention_3"},
-    css_classes: ['attention'],
+    data: {WhatWasRating: "attention_7"},
+    css_classes: ['trial'],
 };
 var AttentionCheck_4 = {
     type: jsPsychHtmlButtonResponse,
     stimulus: ['<img src="img/attention5.png"><img src="img/attention6.png"><img src="img/attention4.png"><p>Beep boop. Which animal does not belong? To check if you are a bot, please select the animal that is different from the others in these photos.</p>'],
     choices: ['1-Cats', '2', '3', '4-Dogs', '5', '6', '7-Otter'],
     data: {WhatWasRating: "attention_3"},
-    css_classes: ['attention'],
+    css_classes: ['trial'],
 };
 
 /* Q1 - Rating Yourself */
@@ -649,8 +649,8 @@ var StereotypeAssociations_traitpairs = shuffledtraitpairs.map(function(v) {
 });
 /* add attention checks */
 StereotypeAssociations_traitpairs[45] = {trait1: "Beep boop. To check if you are a bot, please select '1-Not at all likely'.", trait2: "1-Not at all likely", traitpair:"attention_1"};
-StereotypeAssociations_traitpairs[46] = {trait1: "Beep boop. To check if you are a bot, please select the number of dogs that appear in the images below.<br><br><img src='img/attention1.png' width='250px'> <img src='img/attention2.png' width='250px'>", trait2: "3", traitpair: "attention_2"};
-StereotypeAssociations_traitpairs[47] = {trait1: "Beep boop. To check if you are a bot, please select the number of cats that appear in the images below.<br><br><img src='img/attention5.png' width='250px'> <img src='img/attention6.png' width='250px'> <img src='img/attention4.png' width='250px'>", trait2: "5", traitpair: "attention_3"};
+StereotypeAssociations_traitpairs[46] = {trait1: "Beep boop. To check if you are a bot, please select the number of dogs that appear in the images below.<br><br><img src='img/attention1.png' width='250px'> <img src='img/attention2.png' width='250px'>", trait2: "3", traitpair: "attention_3_or_5"};
+StereotypeAssociations_traitpairs[47] = {trait1: "Beep boop. To check if you are a bot, please select the number of cats that appear in the images below.<br><br><img src='img/attention5.png' width='250px'> <img src='img/attention6.png' width='250px'> <img src='img/attention4.png' width='250px'>", trait2: "5", traitpair: "attention_5"};
 
 // short form (arrow function) of above function:
 //var StereotypeAssociations_traitpairs = shuffledtraitpairs.map(v => ({
