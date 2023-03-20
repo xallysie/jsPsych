@@ -210,6 +210,21 @@ var Q1_RateYourself_block = {
 };
 timeline.push(Q1_RateYourself_block);
 
+/* Q1.5 - Open-ended question about the Self */
+var Q1_OpenEnded_Self = {
+    type: jsPsychSurveyText,
+    preamble: function() {
+        var text = 'Who are you today?';
+        return text;
+    },
+    questions: [
+        {prompt: 'In your own words, please describe who you are, without providing any identifying information such as your name.', rows:6, columns:50, required: true, name:'OpenEnded_DescribeSelf'},
+    ],
+    data: {WhatWasRating: 'OpenEnded_self'},
+    css_classes: ['trial'],
+};
+timeline.push(Q1_OpenEnded_Self);
+
 /* Q2 - Stereotypical Perceptions of Women/Men in General */
 var Stereotypes_instructions = {
     type: jsPsychHtmlButtonResponse,
