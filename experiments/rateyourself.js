@@ -218,7 +218,7 @@ var Q1_OpenEnded_Self = {
         return text;
     },
     questions: [
-        {prompt: 'In your own words, please describe who you are, without providing any identifying information such as your name.', rows:6, columns:50, required: true, name:'OpenEnded_DescribeSelf'},
+        {prompt: '<p style="font-weight: normal;">In your own words, please describe <b>who you are</b> without providing any identifying information such as your name.</p>', rows:6, columns:50, required: true, name:'OpenEnded_DescribeSelf'},
     ],
     data: {WhatWasRating: 'OpenEnded_self'},
     css_classes: ['trial'],
