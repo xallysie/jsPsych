@@ -20,7 +20,7 @@ var jsPsych = initJsPsych({
     // Here <webappURL> is the URL copied from deploying the Google Apps Script
     /**CHANGEME**/
     on_finish: function () {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadData(url, jsPsych.data.get().csv())
     }
 });
@@ -222,7 +222,7 @@ var Stereotypes_instructions = {
     css_classes: ['instructions'],
     post_trial_gap: 100,
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
@@ -408,7 +408,7 @@ var Ideal_instructions = {
     css_classes: ['instructions'],
     post_trial_gap: 100,
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
@@ -604,7 +604,7 @@ var StereotypeAssociations_instructions = {
     css_classes: ['instructions'],
     post_trial_gap: 100,
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
@@ -700,7 +700,7 @@ var Q5_Endorsement_Instructions = {
     css_classes: ['instructions'],
     post_trial_gap: 100,
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
@@ -786,7 +786,7 @@ var Q7_GlobalIdentity_Instructions = {
     css_classes: ['instructions'],
     post_trial_gap: 100,
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
@@ -885,7 +885,7 @@ var Q9_PrototypeImportance_Instructions = {
     css_classes: ['instructions'],
     post_trial_gap: 100,
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
@@ -929,7 +929,7 @@ var Q10_Wellbeing_SWLS_Instructions = {
     css_classes: ['instructions'],
     post_trial_gap: 100,
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
@@ -975,7 +975,7 @@ var Q11_Wellbeing_GAD7_Instructions = {
     css_classes: ['instructions'],
     post_trial_gap: 100,
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
@@ -1031,7 +1031,7 @@ var Q12_Wellbeing_PHQ8_Instructions = {
     css_classes: ['instructions'],
     post_trial_gap: 100,
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
@@ -1067,7 +1067,7 @@ var Wellbeing_PHQ8_severity = {
     data: {WhatWasRating: "WB_PHQ8_Severity"},
     css_classes: ['trial'],
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
@@ -1107,7 +1107,7 @@ var Q13_InclusionOtherinSelf_Instructions = {
     css_classes: ['instructions'],
     post_trial_gap: 100,
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
@@ -1164,7 +1164,7 @@ var Q14_SocialDesirability_Instructions = {
     css_classes: ['instructions'],
     post_trial_gap: 100,
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
@@ -1204,7 +1204,7 @@ var Q15_MetaPerceptions_Instructions = {
     css_classes: ['instructions'],
     post_trial_gap: 100,
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
@@ -1293,7 +1293,7 @@ var Q16_IngroupIdentification_Instructions = {
     css_classes: ['instructions'],
     post_trial_gap: 100,
     on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = "https://script.google.com/macros/s/AKfycbxILhaDIzxUNTFyUESwqu1yz8I-DpLCr4M7rXcBNxTLXr3oFxh9zzIffhwzl9dz3hN_pg/exec";
         jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
     }
 };
