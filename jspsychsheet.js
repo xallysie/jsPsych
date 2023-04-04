@@ -47,7 +47,7 @@ function ajaxCall(url, data_row, subID, last_i, inbetween){
           function(__e){
             var percentcomplete = Math.floor((last_i/(data_row.length-2))*100).toString() + '% data sent!', __e;
             console.log(percentcomplete);
-            jspsych_content.innerHTML = ['Uploading your data<br><br><div class="spinner-border" role="status"><span class="sr-only">Loading...'+percentcomplete+'</span></div>'];
+            jspsych_content.insertAdjacentHTML('beforeend', percentcomplete);
             ajaxCall(url, data_row, __e['subID'], last_i, inbetween);
           }
         ).fail(function(__e){
