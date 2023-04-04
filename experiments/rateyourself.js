@@ -20,10 +20,23 @@ var jsPsych = initJsPsych({
     // Here <webappURL> is the URL copied from deploying the Google Apps Script
     /**CHANGEME**/
     on_finish: function () {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
+        url = scriptserverurl;
         jsPsychSheet.uploadData(url, jsPsych.data.get().csv())
     }
 });
+
+/**CHANGEME**/
+/* randomly select server to upload participant data to */
+var serverNumber = Math.floor(Math.random()*4)+1;
+if (serverNumber==1){
+    var scriptserverurl = "https://script.google.com/macros/s/AKfycbwqWjE1BN2n2lhTpflMUaw3SNGkF4P4yU62slAy0kKUnnoUEq_E_g_XAnMrN3Ep-a00RQ/exec";
+} else if (serverNumber==2){
+    var scriptserverurl = "https://script.google.com/macros/s/AKfycbzx33Y5Z5vBUvMRziknD1iLdlT9_syQSwOYxGB-BbMuM01OJK3Cm62UpNtpOUoC89FpqQ/exec";
+} else if (serverNumber==3){
+    var scriptserverurl = "https://script.google.com/macros/s/AKfycbzuloeZyIIO3anyNGm0JwR_0sSJ4MWv30l6NpG7iMqJQ5YmxAW750gzJu1-bV9uAz3v4A/exec";
+} else {
+    var scriptserverurl = "https://script.google.com/macros/s/AKfycbwbWyDHd_att8KabuiVD9uiiohdJen1DQDx2jUREb-Yfw11J9zGXSvrJEVzC3enJwBdiA/exec";
+}
 
 /* create timeline */
 var timeline = [];
@@ -236,10 +249,6 @@ var Stereotypes_instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 /* timeline.push(Stereotypes_instructions); */
 
@@ -422,10 +431,6 @@ var Ideal_instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 
 var Ideal_com = {
@@ -618,10 +623,6 @@ var StereotypeAssociations_instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 timeline.push(StereotypeAssociations_instructions);
 
@@ -717,10 +718,6 @@ var Q5_Endorsement_Instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 timeline.push(Q5_Endorsement_Instructions);
 
@@ -803,10 +800,6 @@ var Q7_GlobalIdentity_Instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 var GlobalIdentity_qs = [
     {question: "I change my opinion of myself a lot", gi:"GlobalIdentity_1r", reversed:1},
@@ -855,10 +848,6 @@ var Q8_GenderTypicality_Instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4,reversed:1},r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 var GenderTypicality_qs = [ /*removed "other" in questions 2 and 3*/
     {question: "I feel just like "+ParGenPlural+" my age.", gt:"GenderTypicality_1"},
@@ -902,10 +891,6 @@ var Q9_PrototypeImportance_Instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 var PrototypeImportance_qs = [
     {question: "How important is it for you personally to be similar to the ideal "+ParGenSingular+"?", pi:"PrototypeImportance_1"},
@@ -946,10 +931,6 @@ var Q10_Wellbeing_SWLS_Instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 var Wellbeing_SWLS_qs = [
     {question: "In most ways my life is close to my ideal.", swls:"WB_SWLS_1"},
@@ -992,10 +973,6 @@ var Q11_Wellbeing_GAD7_Instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 var Wellbeing_GAD7_qs = [
     {question: "Feeling nervous, anxious, or on edge", gad:"WB_GAD7_1"},
@@ -1048,10 +1025,6 @@ var Q12_Wellbeing_PHQ8_Instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 var Wellbeing_PHQ8_qs = [
     {question: "Little interest or pleasure in doing things", phq:"WB_PHQ8_1"},
@@ -1084,10 +1057,6 @@ var Wellbeing_PHQ8_severity = {
     choices: ['0-Not difficult at all', '1-Somewhat difficult', '2-Very difficult', '3-Extremely difficult'],
     data: {WhatWasRating: "WB_PHQ8_Severity"},
     css_classes: ['trial'],
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 /* append instructions and severity question to array */
 var Q12_Wellbeing_PHQ8_block = {
@@ -1124,10 +1093,6 @@ var Q13_InclusionOtherinSelf_Instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 var InclusionOtherinSelf_trial = {
     type: jsPsychHtmlButtonResponse,
@@ -1181,10 +1146,6 @@ var Q14_SocialDesirability_Instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 var SocialDesirability_qs = [
     {question: "I care a lot about how other people think of me.", sd:"SocialDesirability_1"},
@@ -1221,10 +1182,6 @@ var Q15_MetaPerceptions_Instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 var MetaPerceptions_qs = [
     {question: "To what extent do other people view you as similar to a <u>typical</u> "+ParGenSingular+"?", meta:"MetaPercept_typical", choiceword:"typical"}, 
@@ -1310,10 +1267,6 @@ var Q16_IngroupIdentification_Instructions = {
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
-    on_finish: function() {
-        url = "https://script.google.com/macros/s/AKfycbzCipgh2sWsYpawQ8WT4r9WQSYVCZe5dEQiyrvBNqoJRdUrS_BLLtvXYfOJK2kkskBySQ/exec";
-        jsPsychSheet.uploadPartialData(url, jsPsych.data.get().csv());
-    }
 };
 var IngroupId_qs = [
     {question: "I often think about the fact that I am a "+ParGenSingular+".", ii:"IngroupId_1", question_nb: "I often think about the fact that I am "+customg+"."},
