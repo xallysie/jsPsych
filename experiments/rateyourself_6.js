@@ -1,7 +1,7 @@
 /* **CHANGEME** paste end-of-survey link to Prolific */
 function onUploadSuccess(){
     var jspsych_content = document.getElementById("jspsych-content");
-    jspsych_content.innerHTML = 'Your data is successfully uploaded!<br>Please click the link below to return to Prolific and receive credit for your participation.<br><br><a href="https://app.prolific.co/submissions/complete?cc=C1MZPIHY"><b>RECEIVE PAYMENT ON PROLIFIC</b></a>'
+    jspsych_content.innerHTML = 'Your data is successfully uploaded!<br>Please click the link below to return to Prolific and receive credit for your participation.<br><br><a href="https://app.prolific.co/submissions/complete?cc=CUPS6MKF"><b>RECEIVE PAYMENT ON PROLIFIC</b></a>'
   }
 
 /* initialize jsPsych */
