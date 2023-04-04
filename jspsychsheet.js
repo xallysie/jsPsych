@@ -47,11 +47,14 @@ function ajaxCall(url, data_row, subID, last_i, inbetween){
           function(__e){
             var percentcomplete = Math.floor((last_i/(data_row.length-2))*100).toString() + '% data sent!', __e;
             console.log(percentcomplete);
-            jspsych_content.insertAdjacentHTML('beforeend', percentcomplete);
+            var jspsych_content = document.getElementById("jspsych-content");
+            jspsych_content.innerHTML = ['Uploading your data<br><br><div class="spinner-border" role="status"><span class="sr-only">'+percentcomplete+'</span></div>'];
             ajaxCall(url, data_row, __e['subID'], last_i, inbetween);
+            showUploadStatus();
           }
         ).fail(function(__e){
           console.log('Remote sheet update failed', __e);
+          alert('Remote sheet update failed. Please contact the researcher.')
           return 0;
         });
 
