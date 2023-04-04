@@ -3,7 +3,7 @@
 
 function showUploadStatus(){
   var jspsych_content = document.getElementById("jspsych-content");
-  jspsych_content.innerHTML = 'Uploading your data<br><br><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>'
+  jspsych_content.innerHTML = 'Uploading your data (this will take up to 1 minute)<br><br><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>'
 }
 
 function onUploadSuccess(){
@@ -45,16 +45,12 @@ function ajaxCall(url, data_row, subID, last_i, inbetween){
           data: [{name: "data", value: data.join("\n")}, {name: "subID", value: subID}],
         }).done(
           function(__e){
-            var percentcomplete = Math.floor((last_i/(data_row.length-2))*100).toString() + '% data sent!', __e;
-            console.log(percentcomplete);
-            var jspsych_content = document.getElementById("jspsych-content");
-            jspsych_content.innerHTML = ['Uploading your data<br><br><div class="spinner-border" role="status"><span class="sr-only">'+percentcomplete+'</span></div>'];
+            console.log(Math.floor((last_i/(data_row.length-2))*100).toString() + '% data sent!', __e);
+            alert(Math.floor((last_i/(data_row.length-2))*100).toString() + '% data sent!', __e);
             ajaxCall(url, data_row, __e['subID'], last_i, inbetween);
-            showUploadStatus();
           }
         ).fail(function(__e){
           console.log('Remote sheet update failed', __e);
-          alert('Remote sheet update failed. Please contact the researcher.')
           return 0;
         });
 
