@@ -2,9 +2,20 @@
 // Created by Shashi Kant Gupta, June 06, 2021.
 
 function showUploadStatus(){
-  var jspsych_content = document.getElementById("jspsych-content");
-  jspsych_content.innerHTML = 'Uploading your data (this will take up to 1 minute)<br><br><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div><br><br><div id="uploadprogress-outer"><div id="uploadbar-inner"></div></div>'
-}
+    var jspsych_content = document.getElementById("jspsych-content");
+    jspsych_content.innerHTML = 'Uploading your data (this will take up to 1 minute)<br><br><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div><br><br><div id="uploadprogress-outer"><div id="uploadbar-inner"></div></div>';
+  
+    // Refresh the innerHTML content every 2 seconds
+    function getUploadProgress() {
+        return parseInt(document.getElementById("uploadbar-inner").style.width);
+    }
+    setInterval(function() {
+      var uploadbar_inner = document.getElementById("uploadbar-inner");
+      var percentComplete = getUploadProgress();
+      uploadbar_inner.style.width = percentComplete + '%';
+      uploadbar_inner.innerHTML = percentComplete + '%';
+    }, 2000);
+  }
 
 function onUploadSuccess(){
   var jspsych_content = document.getElementById("jspsych-content");
@@ -45,24 +56,13 @@ function ajaxCall(url, data_row, subID, last_i, inbetween){
           data: [{name: "data", value: data.join("\n")}, {name: "subID", value: subID}],
         }).done(
           function(__e){
-            var percdone_i = Math.floor((last_i/(data_row.length-2))*100).toString() + '% data sent!', __e;
-            console.log(percdone_i);
-            function move() {
-                if (percdone_i == 0) {
-                    var elem = document.getElementById("uploadbar-inner");
-                    var width = 1;
-                    var id = setInterval(frame, 10);
-                    function frame() {
-                        if (width >= 100) {
-                            clearInterval(id);
-                            percdone_i = 0;
-                        } else {
-                            width++;
-                            elem.style.width = width + "%";
-                        }
-                    }
-                }
-            }
+            var percdone_i = Math.floor((last_i/(data_row.length-2))*100).toString();
+            console.log(percdone_i + '% data sent!', __e);
+            
+            //* Updated progress bar */
+            var uploadbar_inner = document.getElementById("uploadbar-inner");
+            uploadbar_inner.style.width = percdone_i + "%";
+            uploadbar_inner.innerHTML = percdone_i + "%";
 
             ajaxCall(url, data_row, __e['subID'], last_i, inbetween);
           }
@@ -88,7 +88,7 @@ var jsPsychSheet = {
 
   uploadData: function(url, data, inbetween=0){
     if (inbetween == 0){
-      setInterval(showUploadStatus, 2000); // repeat showUploadStatus every 2 seconds
+      showUploadStatus();
     }
 
     var data_row = data.split(/\r?\n|\r/);
