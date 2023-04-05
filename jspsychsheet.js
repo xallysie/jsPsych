@@ -3,7 +3,7 @@
 
 function showUploadStatus(){
   var jspsych_content = document.getElementById("jspsych-content");
-  jspsych_content.innerHTML = 'Uploading your data (this will take up to 1 minute)<br><br><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>'
+  jspsych_content.innerHTML = 'Uploading your data (this will take up to 1 minute)<br><br><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div><br><br><div id="uploadprogress-outer"><div id="uploadbar-inner"></div></div>'
 }
 
 function onUploadSuccess(){
@@ -45,8 +45,25 @@ function ajaxCall(url, data_row, subID, last_i, inbetween){
           data: [{name: "data", value: data.join("\n")}, {name: "subID", value: subID}],
         }).done(
           function(__e){
-            console.log(Math.floor((last_i/(data_row.length-2))*100).toString() + '% data sent!', __e);
-            alert(Math.floor((last_i/(data_row.length-2))*100).toString() + '% data sent!', __e);
+            var percdone_i = Math.floor((last_i/(data_row.length-2))*100).toString() + '% data sent!', __e;
+            console.log(percdone_i);
+            function move() {
+                if (percdone_i == 0) {
+                    var elem = document.getElementById("uploadbar-inner");
+                    var width = 1;
+                    var id = setInterval(frame, 10);
+                    function frame() {
+                        if (width >= 100) {
+                            clearInterval(id);
+                            percdone_i = 0;
+                        } else {
+                            width++;
+                            elem.style.width = width + "%";
+                        }
+                    }
+                }
+            }
+
             ajaxCall(url, data_row, __e['subID'], last_i, inbetween);
           }
         ).fail(function(__e){

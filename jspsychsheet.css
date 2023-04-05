@@ -42,3 +42,14 @@
   white-space: nowrap !important;
   border: 0 !important;
 }
+
+#uploadprogress-outer {
+    width: 100%;
+    background-color: grey;
+}
+
+#uploadbar-inner {
+    width: 1%;
+    height: 30px;
+    background-color: #ffa748;
+ }
