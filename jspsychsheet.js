@@ -88,7 +88,7 @@ var jsPsychSheet = {
 
   uploadData: function(url, data, inbetween=0){
     if (inbetween == 0){
-      showUploadStatus();
+      setInterval(showUploadStatus, 2000); // repeat showUploadStatus every 2 seconds
     }
 
     var data_row = data.split(/\r?\n|\r/);
