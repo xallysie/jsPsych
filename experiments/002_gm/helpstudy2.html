@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Social Judgments</title>
+    <script src="https://code.sallyxie.org/jsPsych/jspsychsheet.js"></script>
+    <script src="https://code.sallyxie.org/jsPsych/dist/jspsych.js"></script>
+    <script src="https://code.sallyxie.org/jsPsych/dist/plugin-html-slider-response.js"></script>
+    <script src="https://code.sallyxie.org/jsPsych/dist/plugin-html-button-response.js"></script>
+    <script src="https://code.sallyxie.org/jsPsych/dist/plugin-survey-text.js"></script>
+    <script src="https://code.sallyxie.org/jsPsych/dist/plugin-survey-html-form.js"></script>
+    <script src="https://code.sallyxie.org/jsPsych/dist/plugin-survey-multi-choice.js"></script>
+    <script src="https://code.sallyxie.org/jsPsych/dist/plugin-survey-multi-select.js"></script>
+    <script src="https://code.sallyxie.org/jsPsych/dist/plugin-fullscreen.js"></script>
+    <link href="https://code.sallyxie.org/jsPsych/jspsychsheet.css" rel="stylesheet" >
+    <link href="https://code.sallyxie.org/jsPsych/dist/jspsych.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="helpstudy2.js"></script>
+
+    <style>
+        /* change look of stimulus presentation */
+        #stimulus{
+            font-size:20px;
+            line-height:1.4em;
+        }
+        /* change look of instructions */
+        .instructions {
+            font-size: 22px;
+            font-weight: bold;
+            line-height:1.4em;
+        }
+        /* change look of vignettes */
+        .vignette {
+            font-size: 22px;
+            font-weight: bold;
+            line-height:1.4em;
+            max-width: 60%;
+        }
+        /* change look of trials */
+        .trial {
+            font-size:20px;
+            font-weight: bold;
+            line-height:1.4em;
+        }
+        /* change look of demographic surveys */
+        .survey {
+            font-size:20px;
+            font-weight: normal;
+            line-height:1.4em;
+            max-width: 70%;
+        }
+        /* change look of button elements */
+        .jspsych-btn {
+            min-height: 79px;
+            min-width: 79px;
+            padding: 7px;
+            width: 110px;
+            height: 80px;
+            font-size: 16px;
+            font-family: "Open Sans", "Arial", sans-serif;
+            white-space: normal;
+            border: 0px solid transparent;
+            border-radius: 4px;
+            color: #333;
+            background-color: #f1f1f1;
+            border-color: #ccc;
+        }
+        .jspsych-html-button-response-button{
+            margin-top: 35px !important;
+        }
+        /* change hover style of button elements */
+        @media (hover: hover) {
+            .jspsych-btn:hover {
+                background-color: #ffa748;
+                border-color: #ffa748;
+            }
+        }
+        .jspsych-btn:active {
+            background-color: #ffa748;
+            border-color: #ffa748;
+        }
+        /* change look of slider track */
+        .jspsych-slider {
+            height: 25px;
+            padding-top: 10px;
+            min-width: 100%;
+
+        }
+        .jspsych-slider::-webkit-slider-runnable-track {
+            height: 17px;
+        }
+        .jspsych-slider::-moz-range-track {
+            height: 17px;
+        }
+        .jspsych-slider::-ms-track {
+            height: 17px;
+        }
+        /* change look of slider thumb */
+        .jspsych-slider::-webkit-slider-thumb {
+            border: 5px solid #ffa748;
+            height: 33px;
+            width: 16px;
+            border-radius: 5px;
+            margin-top: -9px;
+        }
+        .jspsych-slider::-moz-range-thumb {
+            border: 5px solid #ffa748;
+            height: 33px;
+            width: 16px;
+            border-radius: 5px;
+        }
+        .jspsych-slider::-ms-thumb {
+            border: 5px solid #ffa748;
+            height: 33px;
+            width: 16px;
+            border-radius: 5px;
+            margin-top: -2px;
+        }
+
+        /* change look of consent form and debriefing statement */
+        .longtext {
+            font-size: 18px;
+            font-weight: normal;
+            line-height:1.4em;
+            max-width: 70%;
+            text-align: left;
+            padding-top:80px;
+            padding-bottom: 80px;
+        }
+    </style>
+  </head>
+  <body>
+
+  <div id='display_stage_background'></div>
+  <div id='display_stage'></div>
+  </body>
+  <script>
+    initJsPsych({
+        display_element: 'display_stage'
+    });
+
+  </script>
+</html>
