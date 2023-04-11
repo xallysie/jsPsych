@@ -251,6 +251,9 @@ for (var k = 0; k < vignettes_k; k++) {
         {question: "How close do you think "+vignettes[k].actorName+" and "+vignettes[k].actorTheir+" "+vignettes[k].targetName+" are?", WhatWasRating:"Closeness", sliderlabel:['Not at all close','Extremely close']},
         {question: "How did this behavior change "+vignettes[k].actorName+" and "+vignettes[k].actorTheir+" "+vignettes[k].targetName+"'s relationship?", WhatWasRating:"RelationChange", sliderlabel:['No change at all','Greatly weakened']},
         {question: "How obligated was "+vignettes[k].actorName+" to help "+vignettes[k].actorTheir+" "+vignettes[k].targetName+"?", WhatWasRating:"Obligation", sliderlabel:['Not at all obligated','Extremely obligated']},
+        {question: "How likable or unlikable is "+vignettes[k].actorName+"?", WhatWasRating:"Likability", sliderlabel:['Extremely unlikable','Neither likable nor unlikable','Extremely likeable']},
+        {question: "How warm is "+vignettes[k].actorName+"? That is, how kind and caring do you think "+vignettes[k].actorPronoun+" is?", WhatWasRating: "Warm", sliderlabel:['Not at all warm','Extremely warm']},
+        {question: "How competent is "+vignettes[k].actorName+"? That is, how capable do you think "+vignettes[k].actorPronoun+" is at doing things?", WhatWasRating: "Competent", sliderlabel:['Not at all competent','Extremely competent']},
         ];    
         /* merge the properties from vignettes[k] with the rating questions so we can input them as timeline variables */
         var thisVignette_timelinevars = Rating_qs_nohelp;
@@ -281,6 +284,9 @@ for (var k = 0; k < vignettes_k; k++) {
         {question: "How close do you think "+vignettes[k].actorName+" and "+vignettes[k].actorTheir+" "+vignettes[k].targetName+" are?", WhatWasRating:"Closeness", sliderlabel:['Not at all close','Extremely close']},
         {question: "How did this behavior change "+vignettes[k].actorName+" and "+vignettes[k].actorTheir+" "+vignettes[k].targetName+"'s relationship?", WhatWasRating:"RelationChange", sliderlabel:['No change at all','Greatly strengthened']},
         {question: "How obligated was "+vignettes[k].actorName+" to help "+vignettes[k].actorTheir+" "+vignettes[k].targetName+"?", WhatWasRating:"Obligation", sliderlabel:['Not at all obligated','Extremely obligated']},
+        {question: "How likable or unlikable is "+vignettes[k].actorName+"?", WhatWasRating:"Likability", sliderlabel:['Extremely unlikable','Neither likable nor unlikable','Extremely likeable']},
+        {question: "How warm is "+vignettes[k].actorName+"? That is, how kind and caring do you think "+vignettes[k].actorPronoun+" is?", WhatWasRating: "Warm", sliderlabel:['Not at all warm','Extremely warm']},
+        {question: "How competent is "+vignettes[k].actorName+"? That is, how capable do you think "+vignettes[k].actorPronoun+" is at doing things?", WhatWasRating: "Competent", sliderlabel:['Not at all competent','Extremely competent']},
         ];
         /* merge the properties from vignettes[k] with the rating questions so we can input them as timeline variables */
         var thisVignette_timelinevars = Rating_qs_help;
