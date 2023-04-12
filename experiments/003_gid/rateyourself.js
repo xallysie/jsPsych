@@ -115,7 +115,7 @@ var AttentionCheck_1 = {
 };
 var AttentionCheck_2 = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: ['<img src="img/attention1.png"> <img src="img/attention2.png"><p>Beep boop. To check if you are a bot, please select the animal that appears in these photos.</p>'],
+    stimulus: ['<img src="../img/attention1.png"> <img src="../img/attention2.png"><p>Beep boop. To check if you are a bot, please select the animal that appears in these photos.</p>'],
     choices: ['1-Not a bot', '2', '3', '4-Neutral', '5', '6', '7-Dogs!'],
     data: {WhatWasRating: "attention_2"},
     css_classes: ['trial'],
@@ -132,7 +132,7 @@ var AttentionCheck_3 = {
 };
 var AttentionCheck_4 = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: ['<img src="img/attention5.png"><img src="img/attention6.png"><img src="img/attention4.png"><p>Beep boop. Which animal does not belong? To check if you are a bot, please select the animal that is different from the others in these photos.</p>'],
+    stimulus: ['<img src="../img/attention5.png"><img src="../img/attention6.png"><img src="../img/attention4.png"><p>Beep boop. Which animal does not belong? To check if you are a bot, please select the animal that is different from the others in these photos.</p>'],
     choices: ['1-Cats', '2', '3', '4-Dogs', '5', '6', '7-Otter'],
     data: {WhatWasRating: "attention_3"},
     css_classes: ['trial'],
@@ -643,7 +643,7 @@ var StereotypeAssociations_instructions = {
         return text;
     },
     choices: ['NEXT'],
-    prompt: '<br><img src="img/stereotypeassociations.png">',
+    prompt: '<br><img src="../img/stereotypeassociations.png">',
     data: {WhatWasRating:'INSTRUCTIONS'},
     css_classes: ['instructions'],
     post_trial_gap: 100,
@@ -689,8 +689,8 @@ var StereotypeAssociations_traitpairs = shuffledtraitpairs.map(function(v) {
 });
 /* add attention checks */
 StereotypeAssociations_traitpairs[45] = {trait1: "Beep boop. To check if you are a bot, please select '1-Not at all likely'.", trait2: "1-Not at all likely", traitpair:"attention_1"};
-StereotypeAssociations_traitpairs[46] = {trait1: "Beep boop. To check if you are a bot, please select the number of dogs that appear in the images below.<br><br><img src='img/attention1.png' width='250px'> <img src='img/attention2.png' width='250px'>", trait2: "3", traitpair: "attention_3_or_5"};
-StereotypeAssociations_traitpairs[47] = {trait1: "Beep boop. To check if you are a bot, please select the number of cats that appear in the images below.<br><br><img src='img/attention5.png' width='250px'> <img src='img/attention6.png' width='250px'> <img src='img/attention4.png' width='250px'>", trait2: "5", traitpair: "attention_5"};
+StereotypeAssociations_traitpairs[46] = {trait1: "Beep boop. To check if you are a bot, please select the number of dogs that appear in the images below.<br><br><img src='../img/attention1.png' width='250px'> <img src='../img/attention2.png' width='250px'>", trait2: "3", traitpair: "attention_3_or_5"};
+StereotypeAssociations_traitpairs[47] = {trait1: "Beep boop. To check if you are a bot, please select the number of cats that appear in the images below.<br><br><img src='../img/attention5.png' width='250px'> <img src='../img/attention6.png' width='250px'> <img src='../img/attention4.png' width='250px'>", trait2: "5", traitpair: "attention_5"};
 
 // short form (arrow function) of above function:
 //var StereotypeAssociations_traitpairs = shuffledtraitpairs.map(v => ({
@@ -1129,25 +1129,25 @@ var InclusionOtherinSelf_trial = {
     choices: function(){
         if (pg==0){
             var pics = [
-                'img/ios_women_0.png',
-                'img/ios_women_1.png',
-                'img/ios_women_2.png',
-                'img/ios_women_3.png',
-                'img/ios_women_4.png',
-                'img/ios_women_5.png',
-                'img/ios_women_6.png',
-                'img/ios_women_7.png'];
+                '../img/ios_women_0.png',
+                '../img/ios_women_1.png',
+                '../img/ios_women_2.png',
+                '../img/ios_women_3.png',
+                '../img/ios_women_4.png',
+                '../img/ios_women_5.png',
+                '../img/ios_women_6.png',
+                '../img/ios_women_7.png'];
             return pics;
         } else if (pg==1){
             var pics = [
-                'img/ios_men_0.png',
-                'img/ios_men_1.png',
-                'img/ios_men_2.png',
-                'img/ios_men_3.png',
-                'img/ios_men_4.png',
-                'img/ios_men_5.png',
-                'img/ios_men_6.png',
-                'img/ios_men_7.png'];
+                '../img/ios_men_0.png',
+                '../img/ios_men_1.png',
+                '../img/ios_men_2.png',
+                '../img/ios_men_3.png',
+                '../img/ios_men_4.png',
+                '../img/ios_men_5.png',
+                '../img/ios_men_6.png',
+                '../img/ios_men_7.png'];
             return pics;
         };
     },
