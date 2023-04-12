@@ -1,8 +1,24 @@
-/* **CHANGEME** paste end-of-survey link to Prolific */
+//**CHANGEME**//
+/* paste end-of-survey link to Prolific */
 function onUploadSuccess(){
     var jspsych_content = document.getElementById("jspsych-content");
     jspsych_content.innerHTML = 'Your data is successfully uploaded!<br>Please click the link below to return to Prolific and receive credit for your participation.<br><br><a href="https://app.prolific.co/submissions/complete?cc=CUPS6MKF"><b>RECEIVE PAYMENT ON PROLIFIC</b></a>'
   };
+
+/* initialize firebase */
+//**CHANGEME**//
+var firebaseConfig = {
+    apiKey: "AIzaSyCGQC8CeNaVmz9d7CAWrUVm-zNvU7xVe0k",
+    authDomain: "genderidentitypilot.firebaseapp.com",
+    databaseURL: "https://genderidentitypilot-default-rtdb.firebaseio.com",
+    projectId: "genderidentitypilot",
+    storageBucket: "genderidentitypilot.appspot.com",
+    messagingSenderId: "604190166528",
+    appId: "1:604190166528:web:6dc2e526735b0fba9b92e5",
+    measurementId: "G-7ZTPXYEN14" // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+};
+firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore();
 
 /* initialize jsPsych */
 var jsPsych = initJsPsych({
@@ -20,6 +36,12 @@ var jsPsych = initJsPsych({
     // Here <webappURL> is the URL copied from deploying the Google Apps Script
     /**CHANGEME**/
     on_finish: function () {
+        /* record time that participant finished survey */
+        var Date_end_time = new Date().toLocaleString('en-US');
+        /* add to participant data */
+        jsPsych.data.addProperties({
+            Date_End_Time: Date_end_time,
+        });
         url = scriptserverurl;
         jsPsychSheet.uploadData(url, jsPsych.data.get().csv())
     }
@@ -48,6 +70,7 @@ var prolificID = urlParams.get('M2GH72PE');
 var pID = urlParams.get('O2MN1ONW');
 var pg = urlParams.get('pg');
 var customg = jsPsych.data.getURLVariable('HSJ2JS');
+var Date_start_time = new Date().toLocaleString('en-US');
 /* add participant-level data to all trials */
 jsPsych.data.addProperties({
     surveyID: surveyID,
@@ -55,6 +78,7 @@ jsPsych.data.addProperties({
     pID: pID,
     ParGen_FM: pg,
     ParGen_Text: customg,
+    Date_Start_Time: Date_start_time,
 });
 
 /* create gendered parameters */
@@ -231,7 +255,7 @@ var Q1_OpenEnded_Self = {
         return text;
     },
     questions: [
-        {prompt: '<p style="font-weight: normal;">In your own words, please describe <b>who you are</b> without providing any identifying information such as your name.</p>', rows:6, columns:50, required: true, name:'OpenEnded_DescribeSelf'},
+        {prompt: '<p style="font-weight: normal;">In your own words, please describe <b>who you are</b> without providing any identifying information such as your name.</p>', rows:4, columns:40, required: true, name:'OpenEnded_DescribeSelf'},
     ],
     data: {WhatWasRating: 'OpenEnded_self'},
     css_classes: ['trial'],
@@ -767,7 +791,7 @@ var Q6_OpenEnded_Ideal = {
         return text;
     },
     questions: [
-        {prompt: 'In your own words, please describe what other people think of as the ideal '+ParGenSingular+'.', rows:8, columns:70, required: true, name:'OpenEnded_DescribeIdeal'},
+        {prompt: 'In your own words, please describe what other people think of as the ideal '+ParGenSingular+'.', rows:4, columns:40, required: true, name:'OpenEnded_DescribeIdeal'},
     ],
     data: {WhatWasRating: 'OpenEnded_ideal'},
     css_classes: ['trial'],
@@ -779,7 +803,7 @@ var Q6_OpenEnded_AgeRace = {
         return text;
     },
     questions: [
-        {prompt: 'Thinking about how other people define the ideal '+ParGenSingular+', what are some of '+ParGenPossessive+' characteristics? What is '+ParGenPossessive+' <i>age</i> and <i>race</i>?', rows:5, columns:70, required:true, name:'OpenEnded_DescribeAgeRace'},
+        {prompt: 'Thinking about how other people define the ideal '+ParGenSingular+', what are some of '+ParGenPossessive+' characteristics? What is '+ParGenPossessive+' <i>age</i> and <i>race</i>?', rows:4, columns:40, required:true, name:'OpenEnded_DescribeAgeRace'},
     ],
     data: {WhatWasRating: 'OpenEnded_AgeRace'},
     css_classes: ['trial'],
@@ -1337,14 +1361,23 @@ var End_of_Survey = {
     choices: ['NEXT'],
     data: {WhatWasRating:'END_OF_SURVEY'},
     css_classes: ['instructions'],
+    on_finish: function(){
+        /* write data to firebase */
+        //**CHANGEME**//
+        var trialdata = jsPsych.data.get().csv();
+        trialdata = {
+            data: trialdata
+        };
+        db.collection("pilot_10item_responses").add(trialdata);
+    }
 }
 
 var Debriefing = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'Thank you for taking the time to participate in our study!<p style="font-weight:normal;">Research in our laboratory is concerned with the psychological mechanisms underlying how social contexts shape our identity. <br>For example, we are interested in how societal ideas about gender change the way that people see, think, and feel about themselves.<br><br>To investigate this question, we asked you to evaluate yourself on various traits, <br>to evaluate the traits that are representative of a typical person in a gender category, <br>and to report on your well-being and your ideas about gender.</p>If you have general questions about this study please contact:<p style="font-weight:normal;">Principal Investigator: Dr. Molly Crockett; mc5121@princeton.edu, crockett.laboratory@gmail.com</p>If you have questions regarding your rights as a research subject, or if problems arise which <br>you do not feel you can discuss with the investigator, please contact the Institutional Review Board at:<p style="font-weight:normal;">Assistant Director, Research Integrity and Assurance<br>Phone: (609) 258-8542<br>Email: irb@princeton.edu</p>On the next page, you will be directed to a link back to Prolific to <U>RECEIVE PAYMENT FOR YOUR PARTICIPATION</U>.',
+    stimulus: '<p style="font-weight:bold;">Thank you for taking the time to participate in our study!</p><p style="font-weight:normal;">Research in our laboratory is concerned with the psychological mechanisms underlying how social contexts shape our identity. <br>For example, we are interested in how societal ideas about gender change the way that people see, think, and feel about themselves.<br><br>To investigate this question, we asked you to evaluate yourself on various traits, <br>to evaluate the traits that are representative of a typical person in a gender category, <br>and to report on your well-being and your ideas about gender.</p><p style="font-weight:bold;">If you have general questions about this study please contact:</p><p style="font-weight:normal;">Principal Investigator: Dr. Molly Crockett; mc5121@princeton.edu, crockett.laboratory@gmail.com</p><p style="font-weight:bold;">If you have questions regarding your rights as a research subject, or if problems arise which <br>you do not feel you can discuss with the investigator, please contact the Institutional Review Board at:</p><p style="font-weight:normal;">Assistant Director, Research Integrity and Assurance<br>Phone: (609) 258-8542<br>Email: irb@princeton.edu</p><p style="font-weight:bold;">On the next page, you will be directed to a link back to Prolific to <U>RECEIVE PAYMENT FOR YOUR PARTICIPATION</U>.</p>',
     choices: ['FINISH STUDY'],
     data: {WhatWasRating:'DEBRIEFING'},
-    css_classes: ['debrief'],
+    css_classes: ['longtext'],
 }
 timeline.push(Exit_Fullscreen);
 timeline.push(End_of_Survey);
