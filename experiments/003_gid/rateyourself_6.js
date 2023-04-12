@@ -255,7 +255,7 @@ var Q1_OpenEnded_Self = {
         return text;
     },
     questions: [
-        {prompt: '<p style="font-weight: normal;">In your own words, please describe <b>who you are</b> without providing any identifying information such as your name.</p>', rows:6, columns:50, required: true, name:'OpenEnded_DescribeSelf'},
+        {prompt: '<p style="font-weight: normal;">In your own words, please describe <b>who you are</b> without providing any identifying information such as your name.</p>', rows:4, columns:40, required: true, name:'OpenEnded_DescribeSelf'},
     ],
     data: {WhatWasRating: 'OpenEnded_self'},
     css_classes: ['trial'],
@@ -804,7 +804,7 @@ var Q6_OpenEnded_Ideal = {
         return text;
     },
     questions: [
-        {prompt: 'In your own words, please describe what other people think of as the ideal '+ParGenSingular+'.', rows:8, columns:70, required: true, name:'OpenEnded_DescribeIdeal'},
+        {prompt: 'In your own words, please describe what other people think of as the ideal '+ParGenSingular+'.', rows:4, columns:40, required: true, name:'OpenEnded_DescribeIdeal'},
     ],
     data: {WhatWasRating: 'OpenEnded_ideal'},
     css_classes: ['trial'],
@@ -816,7 +816,7 @@ var Q6_OpenEnded_AgeRace = {
         return text;
     },
     questions: [
-        {prompt: 'Thinking about how other people define the ideal '+ParGenSingular+', what are some of '+ParGenPossessive+' characteristics? What is '+ParGenPossessive+' <i>age</i> and <i>race</i>?', rows:5, columns:70, required:true, name:'OpenEnded_DescribeAgeRace'},
+        {prompt: 'Thinking about how other people define the ideal '+ParGenSingular+', what are some of '+ParGenPossessive+' characteristics? What is '+ParGenPossessive+' <i>age</i> and <i>race</i>?', rows:4, columns:40, required:true, name:'OpenEnded_DescribeAgeRace'},
     ],
     data: {WhatWasRating: 'OpenEnded_AgeRace'},
     css_classes: ['trial'],
