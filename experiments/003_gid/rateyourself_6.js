@@ -1425,7 +1425,7 @@ var End_of_Survey = {
         trialdata = {
             data: trialdata
         };
-        db.collection("pilot_10item_responses").add(trialdata);
+        db.collection("pilot_6item_responses").add(trialdata);
     }
 }
 
