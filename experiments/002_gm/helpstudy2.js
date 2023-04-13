@@ -3,6 +3,20 @@ function onUploadSuccess(){
     var jspsych_content = document.getElementById("jspsych-content");
     jspsych_content.innerHTML = 'Your data is successfully uploaded!<br>Please click the link below to return to Prolific and receive credit for your participation.<br><br><a href="https://app.prolific.co/submissions/complete?cc=C1MZPIHY"><b>RECEIVE PAYMENT ON PROLIFIC</b></a>'
   };
+  
+/* initialize firebase */
+//**CHANGEME**//
+var firebaseConfig = {
+    apiKey: "AIzaSyAKg6cW1dBeoQl9tC4bc_OIe1jEMdpVtlw",
+    authDomain: "gendermoralityhelping.firebaseapp.com",
+    projectId: "gendermoralityhelping",
+    storageBucket: "gendermoralityhelping.appspot.com",
+    messagingSenderId: "266508974958",
+    appId: "1:266508974958:web:f308f37f9ca972349a5f7f",
+    measurementId: "G-WNNR4HHHXD"
+};
+firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore();
 
 /* initialize jsPsych */
 var jsPsych = initJsPsych({
@@ -593,10 +607,19 @@ var Exit_Fullscreen = {
 }
 var End_of_Survey = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: 'The study is now complete.<br><br>Please read the debriefing message on the next page.',
+    stimulus: 'Thank you for your participation. The study is now complete.<br><br>Please read the debriefing message on the next page.',
     choices: ['NEXT'],
     data: {WhatWasRating:'END_OF_SURVEY'},
     css_classes: ['instructions'],
+    on_finish: function(){
+        /* write data to firebase */
+        //**CHANGEME**//
+        var trialdata = jsPsych.data.get().csv();
+        trialdata = {
+            data: trialdata
+        };
+        db.collection("pilot2_data").add(trialdata);
+    }
 }
 var Debriefing = {
     type: jsPsychHtmlButtonResponse,
